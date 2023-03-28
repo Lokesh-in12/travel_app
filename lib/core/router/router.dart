@@ -24,7 +24,7 @@ class MyAppRouterConfig {
           GoRoute(
             path: RoutePaths.splashScreen,
             name: RouteNames.splashScreen,
-            builder: (context, state) => const SplashScreen(),
+            builder: (context, state) => SplashScreen(),
           ),
 
           ShellRoute(
