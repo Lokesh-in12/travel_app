@@ -42,6 +42,13 @@ flutter:
       fonts:
         - asset: assets/fonts/sora/Sora-Regular.ttf
         - asset: assets/fonts/sora/Sora-SemiBold.ttf
+
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/montserrat/Montserrat-SemiBold.ttf
           # style: italic
   #   - family: Trajan Pro
   #     fonts:

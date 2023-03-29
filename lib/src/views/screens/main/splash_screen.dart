@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:travel_app/src/views/screens/main/widgets/splash_texts.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
@@ -9,6 +8,12 @@ class SplashScreen extends StatelessWidget {
     "assets/images/talk1.png",
     "assets/images/seeFar.png",
     "assets/images/mountain.png",
+  ];
+  final List _titles = ["Jungle Trip", "Hiking Adevntures", "Mountaining"];
+  final List _desc = [
+    "Jungle Trips is what make you meet with new adventures",
+    "Hiking on mountains makes you energitic",
+    "Mountainig is not an easy task , but those who did it they are awesome."
   ];
 
   @override
@@ -19,36 +24,21 @@ class SplashScreen extends StatelessWidget {
         itemCount: 3,
         itemBuilder: (context, index) {
           return Container(
-            width: double.maxFinite,
-            height: double.maxFinite,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(
-                _images[index],
-              ),
-              alignment: Alignment.bottomLeft,
-              fit: BoxFit.contain,
-            )),
-            child: Container(
-              margin: const EdgeInsets.only(top: 90, left: 30, right: 20),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Trips Jungle",
-                        style: Theme.of(context).textTheme.displayLarge,
-                      ),
-                      SizedBox(
-                          width: 200,
-                          child: Text("datadafcvcsdvjdsbvcisuyuadcvhb"))
-                    ],
-                  )
-                ],
-              ),
-            ),
-          );
+              width: double.maxFinite,
+              height: double.maxFinite,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage(
+                  _images[index],
+                ),
+                alignment: Alignment.bottomLeft,
+                fit: BoxFit.contain,
+              )),
+              child: SplashText(
+                  head: "Discover",
+                  title: _titles[index],
+                  desc: _desc[index],
+                  ind: index));
         },
       ),
     );

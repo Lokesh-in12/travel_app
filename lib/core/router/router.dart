@@ -18,7 +18,7 @@ class MyAppRouterConfig {
   static GoRouter getRouter() {
     GoRouter router = GoRouter(
         // initialLocation: '/${RouteNames.homeDiscover}',
-        initialLocation: '${RoutePaths.splashScreen}',
+        initialLocation: '${RoutePaths.splashScreen}', 
         routes: [
           //splashRoute
           GoRoute(
