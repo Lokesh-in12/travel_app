@@ -18,7 +18,8 @@ final GlobalKey<NavigatorState> _shellNavigator =
 class MyAppRouterConfig {
   static GoRouter getRouter() {
     GoRouter router = GoRouter(
-        initialLocation: '/${RouteNames.homeDiscover}',
+        // initialLocation: '/${RouteNames.homeDiscover}',
+        initialLocation: '/${RouteNames.search}',
         // initialLocation: '/${RouteNames.location}/275',
         // initialLocation: RoutePaths.splashScreen,
         routes: [
