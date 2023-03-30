@@ -10,7 +10,7 @@ class ReviewCard extends StatelessWidget {
       width: double.maxFinite,
       height: 50,
       child: DecoratedBox(
-        decoration: const BoxDecoration(color: shimmerLightGrey),
+        decoration: const BoxDecoration(),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(

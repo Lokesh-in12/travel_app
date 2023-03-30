@@ -39,12 +39,19 @@ class _HomeDiscoverState extends State<HomeDiscover>
     ),
   ];
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 7, vsync: this);
     return Scaffold(
+        key: scaffoldKey,
         appBar: AppBar(
-          leading: const Icon(CupertinoIcons.bars),
+          leading: InkWell(
+              onTap: () => scaffoldKey.currentState!.isDrawerOpen
+                  ? scaffoldKey.currentState!.closeDrawer()
+                  : scaffoldKey.currentState!.openDrawer(),
+              child: const Icon(CupertinoIcons.bars)),
           actions: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
@@ -55,7 +62,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
           ],
           elevation: 0.0,
         ),
-        drawer: const MyDrawer(),
+        drawer: MyDrawer(homeCtx: context),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: RefreshIndicator(
@@ -87,7 +94,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     height: 20,
                   ),
                   //tab items
-                  Container(
+                  SizedBox(
                     width: double.maxFinite,
                     height: 300,
                     child: TabBarView(

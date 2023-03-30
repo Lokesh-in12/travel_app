@@ -29,10 +29,10 @@ class _SingleLocationState extends State<SingleLocation>
         color: shimmerGrey,
         child: SafeArea(
           child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
               children: [
                 Container(
-                  // ignore: prefer_const_constructors
                   decoration: BoxDecoration(boxShadow: const [
                     BoxShadow(
                       color: Color.fromARGB(29, 117, 117, 117),
@@ -66,7 +66,8 @@ class _SingleLocationState extends State<SingleLocation>
                               children: [
                                 OverLayButton(
                                     icon: CupertinoIcons.left_chevron,
-                                    goBack: true, mainCtx: context),
+                                    goBack: true,
+                                    mainCtx: context),
                                 OverLayButton(
                                   icon: CupertinoIcons.heart,
                                   mainCtx: context,
@@ -176,13 +177,13 @@ class _SingleLocationState extends State<SingleLocation>
                   height: 270,
                   child: TabBarView(
                     controller: tabController,
+                    physics: AlwaysScrollableScrollPhysics(),
                     children: [
                       SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
                         child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 40),
                           width: double.maxFinite,
-                          color: shimmerLightGrey,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -216,9 +217,9 @@ class _SingleLocationState extends State<SingleLocation>
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.symmetric(horizontal: 40),
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 10),
                           width: double.maxFinite,
-                          color: shimmerLightGrey,
                           height: 300,
                           child: ListView.builder(
                             itemCount: 3,

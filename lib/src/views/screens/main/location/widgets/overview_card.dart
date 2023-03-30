@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/core/themes/colors.dart';
 
+// ignore: must_be_immutable
 class OverViewCard extends StatelessWidget {
   IconData icon;
   String title;
@@ -28,7 +28,7 @@ class OverViewCard extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: orange,
+                color: black,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -6,7 +6,8 @@ import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/drawer_row.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  BuildContext homeCtx;
+  MyDrawer({super.key, required this.homeCtx});
 
   @override
   Widget build(BuildContext context) {
