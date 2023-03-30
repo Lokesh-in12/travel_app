@@ -8,6 +8,7 @@ import 'package:travel_app/src/views/screens/main/home/home_discover.dart';
 import 'package:travel_app/src/views/screens/main/home/profile.dart';
 import 'package:travel_app/src/views/screens/main/home/search.dart';
 import 'package:travel_app/src/views/screens/main/home/trending.dart';
+import 'package:travel_app/src/views/screens/main/location/single_location.dart';
 import 'package:travel_app/src/views/screens/main/splash_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigator = GlobalKey(debugLabel: 'root');
@@ -18,13 +19,21 @@ class MyAppRouterConfig {
   static GoRouter getRouter() {
     GoRouter router = GoRouter(
         // initialLocation: '/${RouteNames.homeDiscover}',
-        initialLocation: '${RoutePaths.splashScreen}', 
+        // initialLocation: '/${RouteNames.location}/275',
+        initialLocation: '${RoutePaths.splashScreen}',
         routes: [
           //splashRoute
           GoRoute(
             path: RoutePaths.splashScreen,
             name: RouteNames.splashScreen,
             builder: (context, state) => SplashScreen(),
+          ),
+
+          GoRoute(
+            path: RoutePaths.location,
+            name: RouteNames.location,
+            builder: (context, state) =>
+                SingleLocation(id: state.params['id']!),
           ),
 
           ShellRoute(

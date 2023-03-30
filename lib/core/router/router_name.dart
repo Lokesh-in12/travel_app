@@ -5,4 +5,5 @@ class RouteNames {
   static const trending = "trending";
   static const search = "search";
   static const profile = "profile";
+  static const location = 'location';
 }

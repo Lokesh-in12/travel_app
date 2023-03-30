@@ -15,14 +15,28 @@ class HomeDiscover extends StatefulWidget {
 
 class _HomeDiscoverState extends State<HomeDiscover>
     with TickerProviderStateMixin {
-  List tabs = [
-    "Asia",
-    "Europe",
-    "North America",
-    "Africa",
-    "Antartica",
-    "South America",
-    "Ocenia"
+  List<Tab> tabs = <Tab>[
+    Tab(
+      text: "Asia",
+    ),
+    Tab(
+      text: "Europe",
+    ),
+    Tab(
+      text: "North America",
+    ),
+    Tab(
+      text: "Africa",
+    ),
+    Tab(
+      text: "Antartica",
+    ),
+    Tab(
+      text: "South America",
+    ),
+    Tab(
+      text: "Ocenia",
+    ),
   ];
 
   @override
@@ -67,29 +81,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     labelStyle: Theme.of(context).textTheme.bodySmall,
                     indicatorSize: TabBarIndicatorSize.tab,
                     indicator: CircleTabIndicator(color: black, radius: 4),
-                    tabs: [
-                      Tab(
-                        text: "Asia",
-                      ),
-                      Tab(
-                        text: "Europe",
-                      ),
-                      Tab(
-                        text: "North America",
-                      ),
-                      Tab(
-                        text: "Africa",
-                      ),
-                      Tab(
-                        text: "Antartica",
-                      ),
-                      Tab(
-                        text: "South America",
-                      ),
-                      Tab(
-                        text: "Ocenia",
-                      ),
-                    ],
+                    tabs: tabs,
                   ),
                   const SizedBox(
                     height: 20,
@@ -151,15 +143,24 @@ class _HomeDiscoverState extends State<HomeDiscover>
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Top trips",
-                        style: Theme.of(context).textTheme.displayMedium,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Top trips",
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                          Text(
+                            "Explore More",
+                            style: Theme.of(context).textTheme.labelSmall,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Wrap(
-                        spacing: 10,
+                        spacing: 12,
                         runSpacing: 20,
                         children: const [
                           LocationCard(),

@@ -38,6 +38,8 @@ class _BottomNavigationDartState extends State<BottomNavigationDart> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: white,
+      elevation: 0,
       showUnselectedLabels: true,
       selectedItemColor: black,
       unselectedItemColor: lightGrey,
