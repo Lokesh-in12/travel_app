@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/bottom_controller.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
@@ -134,22 +135,31 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     height: 20,
                   ),
                   //tab items
-                  SizedBox(
-                    width: double.maxFinite,
-                    height: 300,
-                    child: TabBarView(
-                      controller: _controller,
-                      children: const [
-                        TabViewList(),
-                        TabViewList(),
-                        TabViewList(),
-                        TabViewList(),
-                        // TabViewList(),
-                        // TabViewList(),
-                        // TabViewList(),
-                      ],
-                    ),
-                  ),
+                  Obx(() {
+                    if (hotelsController.Hotels.isEmpty) {
+                      return Center(
+                        child: LoadingAnimationWidget.fourRotatingDots(
+                            color: black, size: 30),
+                      );
+                    }
+                    return SizedBox(
+                      width: double.maxFinite,
+                      height: 300,
+                      child: TabBarView(
+                        controller: _controller,
+                        // children:
+                        //     hotelsController.Hotels.map((element) => TabViewList(
+                        //           e: element,
+                        //         )).take(4).toList(),
+                        children: [
+                          TabViewList(),
+                          TabViewList(),
+                          TabViewList(),
+                          TabViewList(),
+                        ],
+                      ),
+                    );
+                  }),
 
                   //SizedBox
                   const SizedBox(

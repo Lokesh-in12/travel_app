@@ -1,0 +1,881 @@
+{
+    "status": true,
+    "message": "Success",
+    "timestamp": 1680246515835,
+    "data": {
+        "photos": [
+            {
+                "maxHeight": 879,
+                "maxWidth": 1500,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/f6/55/be/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 749,
+                "maxWidth": 1165,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a7/26/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 748,
+                "maxWidth": 1126,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a6/c1/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 745,
+                "maxWidth": 1194,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a7/48/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 748,
+                "maxWidth": 1118,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a7/54/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 744,
+                "maxWidth": 1121,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a6/e2/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 747,
+                "maxWidth": 1120,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/6e/a6/cc/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 2667,
+                "maxWidth": 4000,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/6f/50/7c/presidential-suite-bedroom.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 2667,
+                "maxWidth": 4000,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/97/a2/e9/exterior.jpg?w={width}&h={height}&s=1"
+            },
+            {
+                "maxHeight": 1467,
+                "maxWidth": 2200,
+                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/24/ef/7f/courtyard-by-marriott.jpg?w={width}&h={height}&s=1"
+            }
+        ],
+        "title": "Courtyard by Marriott Bhopal",
+        "rating": 4.5,
+        "numberReviews": 1239,
+        "rankingDetails": "#5 of 438 hotels in <a>Bhopal</a>",
+        "price": {
+            "strikeThroughPrice": null,
+            "status": "IN_PROGRESS",
+            "providerName": "Agoda.com",
+            "freeCancellation": null,
+            "pricingPeriod": null
+        },
+        "about": {
+            "title": "Courtyard By Marriott Bhopal, one of Marriott Bonvoy's extraordinary portfolio of hotel brands, is here to take you on a journey of endless experiences with its renowned hospitality in the city of lakes. Enjoy a short walk to top city attractions, like DB City Mall, which is attached to the hotel, Bhopal Junction, Van Vihar National Park, National Museum of Mankind, Surya Samrak, Taj-ul-Masajid, Sanchi Stupa, Vidhan Sabha and the green gardens of Chinar Park. After a busy day in the city, take the time to explore our hotel's luxurious amenities, including a refreshing rooftop pool, a fully-equipped fitness center, and several onsite restaurants with International and Indian cuisine. In the evening, retreat to oversized accommodations with stylish décor, sleek marble bathrooms, and free high-speed Wi-Fi. If you are visiting for event planning purposes, take advantage of our hotel's business facilities, with 26,307 square feet of venue space and modern audiovisual technology.",
+            "content": [
+                {
+                    "title": "Awards",
+                    "content": []
+                },
+                {
+                    "title": "Available languages",
+                    "content": [
+                        {
+                            "title": "",
+                            "content": "English, Hindi"
+                        }
+                    ]
+                },
+                {
+                    "title": "Related links",
+                    "content": [
+                        {
+                            "title": "Deals",
+                            "content": "https://www.tripadvisor.in/Commerce?p=Marriott_BA&src=183965089&geo=3701492&from=&area=&slot=2&matchID=1&oos=0&cnt=1&silo=38058&bucket=934870&nrank=1&crank=1&clt=CDM&ttype=CLDealsMobile&tm=260158115&managed=false&capped=false&gosox=g3xMt9YCHBy3ZUg-YypssegjQviHlJQg6b-lnBPg98x_z9Z0XP9pjcZi3RyRnEOZYDFhcbXT4srmeB8sBxseCmCQBeNCVG-_w8CdMCb00AY&adults=1&child_rm_ages=&inDay=31&outDay=1&rooms=1&dated=true&inMonth=3&inYear=2023&outMonth=4&outYear=2023&def_d=true&bapid=2&cs=14a13addb6e07c32275c982a4e5896552&ba_uid=c668f67a-5a18-449c-935b-0cf103fb23af"
+                        }
+                    ]
+                },
+                {
+                    "title": "Amenities",
+                    "content": [
+                        {
+                            "title": "Free parking"
+                        },
+                        {
+                            "title": "Free internet"
+                        },
+                        {
+                            "title": "Pool"
+                        },
+                        {
+                            "title": "Fitness Centre with Gym / Workout Room"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                "Green",
+                "City View",
+                "Business",
+                "Centrally Located"
+            ]
+        },
+        "reviews": {
+            "content": [
+                {
+                    "title": "Great Experience getting married here!",
+                    "text": "We hosted our 3-day wedding at Courtyard by Marriott Bhopal and the arrangements made by the team for each event were impeccable. Shrasti, Devesh, Ashish and Yogesh were present at all times to personally attend to each detail. The food was great, and the menu was carefully curated, keeping our specific requirements in mind. Overall, an amazing experience! Would definitely recommend Courtyard by Marriott to make your special events even more memorable.",
+                    "bubbleRatingText": "Mar 2023",
+                    "publishedDate": "Written 30/03/23",
+                    "userProfile": {
+                        "deprecatedContributionCount": "1 contribution",
+                        "avatar": {
+                            "maxHeight": 1200,
+                            "maxWidth": 1200,
+                            "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e9/60/default-avatar-2020-64.jpg?w={width}&h={height}&s=1"
+                        }
+                    },
+                    "photos": []
+                },
+                {
+                    "title": "Perfect hotel in Bhopal",
+                    "text": "Great hotel. Located next door to DB Mall, the biggest shopping destination in Bhopal, the hotel ticks all the boxes. Great location, clean rooms, good health centre and a sumptuous breakfast spread make it an ideal hotel to spend few days in Bhopal.",
+                    "bubbleRatingText": "Feb 2023 • Solo",
+                    "publishedDate": "Written 29/03/23",
+                    "userProfile": {
+                        "deprecatedContributionCount": "39 contributions",
+                        "avatar": {
+                            "maxHeight": 575,
+                            "maxWidth": 575,
+                            "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/c8/09/7f/turjasen.jpg?w={width}&h={height}&s=1"
+                        }
+                    },
+                    "photos": []
+                },
+                {
+                    "title": "Marriott is Marriott Afteralll",
+                    "text": "Marriott being truly Marriott.... What food.. What ambience.... Truly awesome... Great courteous and polite staff... Specially the staff from banquet... Mr Singh asked his staff to make amazing pizza ASAP has my wife had asked for it... Miss ROSHNI took care that no stone was left unturned and we had a great luxury Delicious variety of eating experience... <br /><br />Eagerly waiting to return back.... ",
+                    "bubbleRatingText": "Mar 2023 • Couples",
+                    "publishedDate": "Written 29/03/23",
+                    "userProfile": {
+                        "deprecatedContributionCount": "3 contributions",
+                        "avatar": {
+                            "maxHeight": 1200,
+                            "maxWidth": 1200,
+                            "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/ef/32/default-avatar-2020-12.jpg?w={width}&h={height}&s=1"
+                        }
+                    },
+                    "photos": [
+                        {
+                            "__typename": "AppPresentation_Photo",
+                            "link": {
+                                "__typename": "AppPresentation_InternalLink",
+                                "text": null,
+                                "accessibilityString": null,
+                                "route": {
+                                    "__typename": "Routing_Route",
+                                    "page": "PhotoDetails",
+                                    "url": "/PhotoDetails?ff=682442753&t=p&locationId=3701492&geo=3701492&cfg=mvqa&ep=review&rid=883982236",
+                                    "nonCanonicalUrl": "/PhotoDetails?ff=682442753&t=p&locationId=3701492&geo=3701492&cfg=mvqa&ep=review&rid=883982236",
+                                    "typedParams": {
+                                        "__typename": "Routing_PhotoDetailsParameters",
+                                        "locationId": 3701492,
+                                        "locationIdStr": "3701492",
+                                        "albumId": null,
+                                        "positionId": null,
+                                        "from": null,
+                                        "to": null,
+                                        "mediaId": 682442753,
+                                        "mediaType": "p",
+                                        "galleryConfig": "mvqa",
+                                        "entryPoint": "review",
+                                        "reviewId": "883982236"
+                                    }
+                                },
+                                "trackingContext": "server_reviewPhoto_682442753",
+                                "webviewRoute": null
+                            },
+                            "photo": {
+                                "__typename": "Photo",
+                                "photoSizes": [
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 0,
+                                        "width": 0,
+                                        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ad/40/01/caption.jpg?w=100&h=100&s=1"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 50,
+                                        "width": 50,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 150,
+                                        "width": 150,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 200,
+                                        "width": 180,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-i/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 188,
+                                        "width": 250,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 413,
+                                        "width": 550,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 768,
+                                        "width": 1024,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-w/28/ad/40/01/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 867,
+                                        "width": 1156,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/ad/40/01/caption.jpg"
+                                    }
+                                ],
+                                "photoSizeDynamic": {
+                                    "__typename": "PhotoSizeDynamic",
+                                    "maxHeight": 867,
+                                    "maxWidth": 1156,
+                                    "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ad/40/01/caption.jpg?w={width}&h={height}&s=1"
+                                }
+                            }
+                        },
+                        {
+                            "__typename": "AppPresentation_Photo",
+                            "link": {
+                                "__typename": "AppPresentation_InternalLink",
+                                "text": null,
+                                "accessibilityString": null,
+                                "route": {
+                                    "__typename": "Routing_Route",
+                                    "page": "PhotoDetails",
+                                    "url": "/PhotoDetails?ff=682442752&t=p&locationId=3701492&geo=3701492&cfg=mvqa&ep=review&rid=883982236",
+                                    "nonCanonicalUrl": "/PhotoDetails?ff=682442752&t=p&locationId=3701492&geo=3701492&cfg=mvqa&ep=review&rid=883982236",
+                                    "typedParams": {
+                                        "__typename": "Routing_PhotoDetailsParameters",
+                                        "locationId": 3701492,
+                                        "locationIdStr": "3701492",
+                                        "albumId": null,
+                                        "positionId": null,
+                                        "from": null,
+                                        "to": null,
+                                        "mediaId": 682442752,
+                                        "mediaType": "p",
+                                        "galleryConfig": "mvqa",
+                                        "entryPoint": "review",
+                                        "reviewId": "883982236"
+                                    }
+                                },
+                                "trackingContext": "server_reviewPhoto_682442752",
+                                "webviewRoute": null
+                            },
+                            "photo": {
+                                "__typename": "Photo",
+                                "photoSizes": [
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 0,
+                                        "width": 0,
+                                        "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ad/40/00/caption.jpg?w=100&h=100&s=1"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 50,
+                                        "width": 50,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 150,
+                                        "width": 150,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 200,
+                                        "width": 180,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-i/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 188,
+                                        "width": 250,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 413,
+                                        "width": 550,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 770,
+                                        "width": 1024,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-w/28/ad/40/00/caption.jpg"
+                                    },
+                                    {
+                                        "__typename": "PhotoSize",
+                                        "height": 847,
+                                        "width": 1127,
+                                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/28/ad/40/00/caption.jpg"
+                                    }
+                                ],
+                                "photoSizeDynamic": {
+                                    "__typename": "PhotoSizeDynamic",
+                                    "maxHeight": 847,
+                                    "maxWidth": 1127,
+                                    "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ad/40/00/caption.jpg?w={width}&h={height}&s=1"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "count": 1239,
+            "ratingValue": 4.5,
+            "ratingCounts": {
+                "average": {
+                    "percentage": 4,
+                    "count": "52"
+                },
+                "excellent": {
+                    "percentage": 68,
+                    "count": "842"
+                },
+                "poor": {
+                    "percentage": 2,
+                    "count": "24"
+                },
+                "terrible": {
+                    "percentage": 4,
+                    "count": "44"
+                },
+                "veryGood": {
+                    "percentage": 22,
+                    "count": "278"
+                }
+            }
+        },
+        "location": {
+            "title": "The area",
+            "address": "DB City - Arera Hills, Bhopal 462011 India",
+            "neighborhood": {},
+            "gettingThere": {
+                "title": "How to get there",
+                "content": [
+                    "Bhopal Airport • 10.94 km"
+                ]
+            },
+            "walkability": null
+        },
+        "geoPoint": {
+            "latitude": 23.233171,
+            "longitude": 77.4297
+        },
+        "restaurantsNearby": {
+            "sectionTitle": "Restaurants nearby",
+            "content": [
+                {
+                    "title": "Bay Leaf",
+                    "bubbleRating": {
+                        "rating": 5,
+                        "numberReviews": "248"
+                    },
+                    "primaryInfo": "₹₹₹₹ • Indian • Bar • International",
+                    "distance": "30 m",
+                    "cardPhoto": {
+                        "maxHeight": 1500,
+                        "maxWidth": 1004,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/9d/60/18/bay-leaf.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "MoMo Café",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "446"
+                    },
+                    "primaryInfo": "₹₹₹₹ • Indian • Cafe • International",
+                    "distance": "70 m",
+                    "cardPhoto": {
+                        "maxHeight": 748,
+                        "maxWidth": 1121,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/d9/6b/34/momo-cafe.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Manohar Dairy and Restaurant - MP Nagar",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "173"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Indian • Fast food • Street Food",
+                    "distance": "0.5 km",
+                    "cardPhoto": {
+                        "maxHeight": 450,
+                        "maxWidth": 800,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/44/dc/d2/hallway-to-an-overall.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "10 Downing Street Bhopal",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "137"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Indian • Bar • International",
+                    "distance": "0.3 km",
+                    "cardPhoto": {
+                        "maxHeight": 1332,
+                        "maxWidth": 2000,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/5f/90/4d/10-downing-street-bhopal.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Chi Chicken",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "46"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Chinese • Japanese • Sushi",
+                    "distance": "0.1 km",
+                    "cardPhoto": {
+                        "maxHeight": 1040,
+                        "maxWidth": 585,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/70/b1/90/nice-seating-arrangement.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Amer Greens Restaurant",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "45"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Indian • Asian • Vegetarian Friendly",
+                    "distance": "0.2 km",
+                    "cardPhoto": {
+                        "maxHeight": 2322,
+                        "maxWidth": 4128,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/6d/d3/eb/restaurant-interiors.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Courtyard by Marriott Bhopal",
+                    "bubbleRating": {
+                        "rating": 5,
+                        "numberReviews": "14"
+                    },
+                    "primaryInfo": "₹₹₹₹ • Bar • Pub",
+                    "distance": "0.1 km",
+                    "cardPhoto": {
+                        "maxHeight": 2048,
+                        "maxWidth": 2048,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ef/07/77/photo1jpg.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Chai 34",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "14"
+                    },
+                    "primaryInfo": "₹ • Indian",
+                    "distance": "0.3 km",
+                    "cardPhoto": {
+                        "maxHeight": 2736,
+                        "maxWidth": 2860,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/cf/fc/81/tandoori-chai.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Gaagar Sweets",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "11"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Dessert",
+                    "distance": "0.4 km",
+                    "cardPhoto": {}
+                },
+                {
+                    "title": "Brindavan Dhaba",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "17"
+                    },
+                    "primaryInfo": "₹₹ - ₹₹₹ • Indian • Vegetarian Friendly",
+                    "distance": "0.2 km",
+                    "cardPhoto": {}
+                }
+            ]
+        },
+        "attractionsNearby": {
+            "sectionTitle": "Attractions nearby",
+            "content": [
+                {
+                    "title": "DB City Mall",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "317"
+                    },
+                    "primaryInfo": "Shopping Malls",
+                    "distance": "71 m",
+                    "cardPhoto": {
+                        "maxHeight": 1280,
+                        "maxWidth": 960,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/08/3a/8c/img-20161231-wa0228-largejpg.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Chinar Park",
+                    "bubbleRating": {
+                        "rating": 5,
+                        "numberReviews": "1"
+                    },
+                    "primaryInfo": "Parks",
+                    "distance": "0.1 km",
+                    "cardPhoto": {
+                        "maxHeight": 1456,
+                        "maxWidth": 2592,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/21/76/fb/chinar-park.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Lakshmi Narayana Temple",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "164"
+                    },
+                    "primaryInfo": "Religious Sites",
+                    "distance": "0.7 km",
+                    "cardPhoto": {
+                        "maxHeight": 1500,
+                        "maxWidth": 2000,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/1b/7c/5a/temple-with-its-beauty.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Sadar Manzil",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "27"
+                    },
+                    "primaryInfo": "Historic Sites",
+                    "distance": "0.7 km",
+                    "cardPhoto": {
+                        "maxHeight": 1500,
+                        "maxWidth": 2000,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/70/c8/78/sadar-manzil.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Ekant Park",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "12"
+                    },
+                    "primaryInfo": "Parks",
+                    "distance": "0.7 km",
+                    "cardPhoto": {
+                        "maxHeight": 1123,
+                        "maxWidth": 2000,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/96/12/d7/ekant-park.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Madhya Pradesh Tribal Museum",
+                    "bubbleRating": {
+                        "rating": 5,
+                        "numberReviews": "328"
+                    },
+                    "primaryInfo": "Natural History Museums • History Museums",
+                    "distance": "4.6 km",
+                    "cardPhoto": {
+                        "maxHeight": 596,
+                        "maxWidth": 1080,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/d9/90/ac/img-20190317-wa0012-largejpg.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Indira Gandhi Rashtriya Manav Sangrahalaya - National Museum of Mankind",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "288"
+                    },
+                    "primaryInfo": "History Museums",
+                    "distance": "3.8 km",
+                    "cardPhoto": {
+                        "maxHeight": 364,
+                        "maxWidth": 550,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-s/02/74/e5/21/indira-gandhi-rashtriya.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Birla Mandir",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "49"
+                    },
+                    "primaryInfo": "Architectural Buildings • Religious Sites",
+                    "distance": "1.4 km",
+                    "cardPhoto": {
+                        "maxHeight": 3456,
+                        "maxWidth": 4608,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/df/01/a0/view-from-front.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Upper Lake",
+                    "bubbleRating": {
+                        "rating": 4.5,
+                        "numberReviews": "572"
+                    },
+                    "primaryInfo": "Bodies of Water",
+                    "cardPhoto": {
+                        "maxHeight": 1500,
+                        "maxWidth": 2000,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/54/a9/df/upper-lake.jpg?w={width}&h={height}&s=1"
+                    }
+                },
+                {
+                    "title": "Bittan Market Haat",
+                    "bubbleRating": {
+                        "rating": 4,
+                        "numberReviews": "9"
+                    },
+                    "primaryInfo": "Flea & Street Markets • Farmers Markets",
+                    "distance": "1.4 km",
+                    "cardPhoto": {
+                        "maxHeight": 640,
+                        "maxWidth": 960,
+                        "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/e3/58/97/bhopal-food-festival.jpg?w={width}&h={height}&s=1"
+                    }
+                }
+            ]
+        },
+        "qA": {
+            "content": [
+                {
+                    "title": "Is there ironing facilities and coffee maker available in the room",
+                    "writtenDate": "16 May 2022",
+                    "memberProfile": {
+                        "profileImage": {}
+                    },
+                    "topAnswer": {
+                        "text": "Yes, both are there.",
+                        "writtenDate": "19 November 2022",
+                        "thumbsUpCount": 0,
+                        "memberProfile": {
+                            "displayName": "Piyush A",
+                            "hometown": "Mumbai, India",
+                            "profileImage": {
+                                "maxHeight": 1200,
+                                "maxWidth": 1200,
+                                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e7/fe/default-avatar-2020-58.jpg?w={width}&h={height}&s=1"
+                            },
+                            "contributionCounts": null,
+                            "deprecatedContributionCount": "296 contributions"
+                        }
+                    }
+                },
+                {
+                    "title": "Is my dog 🐶  allowed to stay with us  and attend my wedding?",
+                    "writtenDate": "22 July 2021",
+                    "memberProfile": {
+                        "profileImage": {}
+                    },
+                    "topAnswer": {
+                        "memberProfile": {
+                            "profileImage": {
+                                "maxHeight": 1200,
+                                "maxWidth": 1200,
+                                "urlTemplate": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e8/ea/default-avatar-2020-63.jpg?w={width}&h={height}&s=1"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "amenitiesScreen": [
+            {
+                "title": "Parking",
+                "content": [
+                    "Free parking",
+                    "Valet parking"
+                ]
+            },
+            {
+                "title": "Internet",
+                "content": [
+                    "Free internet",
+                    "Wifi"
+                ]
+            },
+            {
+                "title": "Fitness",
+                "content": [
+                    "Fitness Centre with Gym / Workout Room",
+                    "Fitness / spa changing rooms"
+                ]
+            },
+            {
+                "title": "Pool",
+                "content": [
+                    "Pool",
+                    "Pool / beach towels",
+                    "Pool with view",
+                    "Outdoor pool"
+                ]
+            },
+            {
+                "title": "Food & drink",
+                "content": [
+                    "Bar / lounge",
+                    "Coffee shop",
+                    "Restaurant",
+                    "Breakfast available",
+                    "Breakfast buffet",
+                    "Outdoor dining area",
+                    "Snack bar",
+                    "Vending machine"
+                ]
+            },
+            {
+                "title": "Family",
+                "content": [
+                    "Kids stay free"
+                ]
+            },
+            {
+                "title": "Transportation",
+                "content": [
+                    "Airport transportation",
+                    "Car hire"
+                ]
+            },
+            {
+                "title": "Business",
+                "content": [
+                    "Conference facilities",
+                    "Banquet room",
+                    "Meeting rooms",
+                    "Photo copier / fax In business centre"
+                ]
+            },
+            {
+                "title": "View",
+                "content": [
+                    "City view"
+                ]
+            },
+            {
+                "title": "Room types",
+                "content": [
+                    "Non-smoking rooms",
+                    "Suites",
+                    "Family rooms"
+                ]
+            },
+            {
+                "title": "Comfort",
+                "content": [
+                    "Allergy-free room",
+                    "Soundproof rooms",
+                    "Bathrobes"
+                ]
+            },
+            {
+                "title": "Room features",
+                "content": [
+                    "Air conditioning",
+                    "Desk",
+                    "Housekeeping",
+                    "Interconnected rooms available",
+                    "Room service",
+                    "Safe",
+                    "Seating area",
+                    "Sofa",
+                    "Telephone",
+                    "Bottled water",
+                    "Iron",
+                    "Wake-up service / alarm clock"
+                ]
+            },
+            {
+                "title": "Kitchen",
+                "content": [
+                    "Coffee / tea maker",
+                    "Minibar",
+                    "Refrigerator",
+                    "Electric kettle"
+                ]
+            },
+            {
+                "title": "Entertainment",
+                "content": [
+                    "Cable / satellite TV",
+                    "Flatscreen TV",
+                    "On-demand films",
+                    "Radio"
+                ]
+            },
+            {
+                "title": "General",
+                "content": [
+                    "24-hour security",
+                    "Baggage storage",
+                    "Concierge",
+                    "Currency exchange",
+                    "Executive lounge access",
+                    "Newspaper",
+                    "Non-smoking hotel",
+                    "Outdoor furniture",
+                    "Sun deck",
+                    "Sun loungers / beach chairs",
+                    "ATM on site"
+                ]
+            },
+            {
+                "title": "Reception services",
+                "content": [
+                    "24-hour front desk",
+                    "Express check-in / check-out"
+                ]
+            },
+            {
+                "title": "Cleaning services",
+                "content": [
+                    "Dry cleaning",
+                    "Laundry service"
+                ]
+            },
+            {
+                "title": "Bed",
+                "content": [
+                    "Sofa bed"
+                ]
+            },
+            {
+                "title": "Bath",
+                "content": [
+                    "Walk-in shower",
+                    "Bath / shower",
+                    "Complimentary toiletries",
+                    "Hair dryer"
+                ]
+            }
+        ]
+    }
+}

@@ -12,8 +12,8 @@ class CategoryCard extends StatelessWidget {
     return Container(
       width: 120,
       height: 50,
-      decoration:
-          BoxDecoration(color: shimmerGrey, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+          color: shimmerGrey, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
           Image.asset(

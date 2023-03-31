@@ -10,7 +10,7 @@ class LocationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.goNamed(RouteNames.location, params: {"id": "257"}),
+      onTap: () => context.goNamed(RouteNames.hotel, params: {"id": "257"}),
       child: Container(
         width: 180,
         height: 240,

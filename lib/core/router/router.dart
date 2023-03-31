@@ -31,8 +31,8 @@ class MyAppRouterConfig {
           ),
 
           GoRoute(
-            path: RoutePaths.location,
-            name: RouteNames.location,
+            path: RoutePaths.hotel,
+            name: RouteNames.hotel,
             builder: (context, state) =>
                 SingleLocation(id: state.params['id']!),
           ),
