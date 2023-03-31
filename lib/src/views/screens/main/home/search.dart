@@ -33,11 +33,8 @@ class SearchScreen extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 0, color: white),
                   ),
-                  
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: black))
-
-                  ),
-                  
+                  focusedBorder:
+                      OutlineInputBorder(borderSide: BorderSide(color: black))),
             )
           ],
         ),

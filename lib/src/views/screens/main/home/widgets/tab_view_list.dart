@@ -53,7 +53,7 @@ class TabViewList extends StatelessWidget {
                       ),
                       Text(
                         "South Africa",
-                        style: Theme.of(context).textTheme.titleSmall,
+                        style: Theme.of(context).textTheme.labelSmall,
                       ),
                     ],
                   ),

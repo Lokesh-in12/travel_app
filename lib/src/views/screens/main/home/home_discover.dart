@@ -113,38 +113,34 @@ class _HomeDiscoverState extends State<HomeDiscover>
 
                   //SizedBox
                   const SizedBox(
-                    height: 20,
+                    height: 17,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Category",
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        width: double.maxFinite,
-                        height: 40,
-                        child: ListView.separated(
-                          separatorBuilder: (context, index) => const SizedBox(
-                            width: 15,
-                          ),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return const CategoryCard();
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Text(
+                  //       "Category",
+                  //       style: Theme.of(context).textTheme.displayMedium,
+                  //     ),
+                  //     const SizedBox(
+                  //       height: 15,
+                  //     ),
+                  //     Container(
+                  //       width: double.maxFinite,
+                  //       height: 40,
+                  //       child: ListView.separated(
+                  //         separatorBuilder: (context, index) => const SizedBox(
+                  //           width: 15,
+                  //         ),
+                  //         scrollDirection: Axis.horizontal,
+                  //         itemCount: 5,
+                  //         itemBuilder: (context, index) {
+                  //           return const CategoryCard();
+                  //         },
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
 
                   //top trips
                   Column(
