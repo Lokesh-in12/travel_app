@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:travel_app/core/themes/colors.dart';
-import 'package:travel_app/src/views/screens/main/home/widgets/category_card.dart';
+import 'package:travel_app/src/controllers/bottom_controller.dart';
+import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/drawer.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/location_card.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/tab_view_list.dart';
@@ -17,33 +19,71 @@ class _HomeDiscoverState extends State<HomeDiscover>
     with TickerProviderStateMixin {
   List<Tab> tabs = <Tab>[
     Tab(
-      text: "Asia",
+      text: "Bhopal",
     ),
     Tab(
-      text: "Europe",
+      text: "Indore",
     ),
     Tab(
-      text: "North America",
+      text: "Bengaluru",
     ),
     Tab(
-      text: "Africa",
+      text: "Mumbai",
     ),
-    Tab(
-      text: "Antartica",
-    ),
-    Tab(
-      text: "South America",
-    ),
-    Tab(
-      text: "Ocenia",
-    ),
+    // Tab(
+    //   text: "Antartica",
+    // ),
+    // Tab(
+    //   text: "South America",
+    // ),
+    // Tab(
+    //   text: "Ocenia",
+    // ),
   ];
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final hotelsController = Get.find<HotelsController>();
+  final bottomController = Get.find<BottomController>();
+
+  late TabController _controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = new TabController(length: 4, vsync: this);
+    hotelsController.handleHotels("bhopal");
+    _controller.addListener(() {
+      if (_controller.indexIsChanging) {
+        hotelsController.Hotels.value = [];
+        switch (_controller.index) {
+          case 0:
+            hotelsController.handleHotels("bhopal");
+            break;
+          case 1:
+            hotelsController.handleHotels("indore");
+            break;
+          case 2:
+            hotelsController.handleHotels("bangalore");
+            break;
+          case 3:
+            hotelsController.handleHotels("mumbai");
+            break;
+          default:
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 7, vsync: this);
+    print("data is =>>>> ${hotelsController.Hotels.value}");
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
@@ -82,7 +122,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     unselectedLabelColor: lightGrey,
                     labelColor: black,
                     isScrollable: true,
-                    controller: _tabController,
+                    controller: _controller,
                     physics: const AlwaysScrollableScrollPhysics(),
                     automaticIndicatorColorAdjustment: true,
                     labelStyle: Theme.of(context).textTheme.bodySmall,
@@ -98,15 +138,15 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     width: double.maxFinite,
                     height: 300,
                     child: TabBarView(
-                      controller: _tabController,
+                      controller: _controller,
                       children: const [
                         TabViewList(),
                         TabViewList(),
                         TabViewList(),
                         TabViewList(),
-                        TabViewList(),
-                        TabViewList(),
-                        TabViewList(),
+                        // TabViewList(),
+                        // TabViewList(),
+                        // TabViewList(),
                       ],
                     ),
                   ),

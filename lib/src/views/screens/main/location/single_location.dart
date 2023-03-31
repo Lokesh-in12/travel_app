@@ -99,6 +99,8 @@ class _SingleLocationState extends State<SingleLocation>
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineLarge,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
                                     const SizedBox(
