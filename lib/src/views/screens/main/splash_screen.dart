@@ -17,17 +17,21 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   final List _images = [
-    "assets/images/talk1.png",
-    "assets/images/seeFar.png",
-    "assets/images/mountain.png",
+    "assets/images/hotel1.png",
+    "assets/images/hotel2.png",
+    "assets/images/hotel3.jpg",
   ];
 
-  final List _titles = ["Jungle Trip", "Hiking Adevntures", "Mountaining"];
+  final List _titles = [
+    "Browse Hotels",
+    "Want a 5 ⭐",
+    "Confused where to stay?"
+  ];
 
   final List _desc = [
-    "Jungle Trips is what make you meet with new adventures",
-    "Hiking on mountains makes you energitic",
-    "Mountainig is not an easy task , but those who did it they are awesome."
+    "Every city has its own popular hotles, proceed to surf them!",
+    "Don't worry we got it , from bottom to 5 ⭐ we've got all!",
+    "Try our latest alogorithm just to make you choose your hotel!. "
   ];
 
   @override
@@ -43,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                 image: AssetImage(
-                  _images[index],
+                  _images[index], 
                 ),
                 alignment: Alignment.bottomLeft,
                 fit: BoxFit.contain,

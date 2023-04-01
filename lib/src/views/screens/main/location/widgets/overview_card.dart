@@ -16,8 +16,8 @@ class OverViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110,
-      height: 50,
+      width: 130,
+      height: 55,
       child: DecoratedBox(
         decoration: BoxDecoration(
             color: shimmerLightGrey, borderRadius: BorderRadius.circular(10)),
@@ -33,13 +33,23 @@ class OverViewCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.labelMedium,
+                  SizedBox(
+                    width: 80,
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.labelMedium,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                  Text(
-                    desc,
-                    style: Theme.of(context).textTheme.titleSmall,
+                  SizedBox(
+                    width: 80,
+                    child: Text(
+                      desc,
+                      style: Theme.of(context).textTheme.titleSmall,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   )
                 ],
               )

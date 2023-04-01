@@ -26,9 +26,14 @@ class SplashText extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                title.toString(),
-                style: Theme.of(context).textTheme.titleLarge,
+              SizedBox(
+                width: 300,
+                child: Text(
+                  title.toString(),
+                  style: Theme.of(context).textTheme.titleLarge,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               const SizedBox(
                 height: 10,

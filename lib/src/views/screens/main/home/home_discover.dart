@@ -147,16 +147,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                       height: 300,
                       child: TabBarView(
                         controller: _controller,
-                        // children:
-                        //     hotelsController.Hotels.map((element) => TabViewList(
-                        //           e: element,
-                        //         )).take(4).toList(),
-                        children: [
-                          TabViewList(),
-                          TabViewList(),
-                          TabViewList(),
-                          TabViewList(),
-                        ],
+                        children: tabs.map((e) => TabViewList()).toList(),
                       ),
                     );
                   }),

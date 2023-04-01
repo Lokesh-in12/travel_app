@@ -21,9 +21,6 @@ class TabViewList extends StatelessWidget {
       itemCount: hotelsController.Hotels.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        print(
-            "imgeUrl is= >> ${e[index].image!.urlTemplate.toString().split("?")[0].toString() + "?w=230&h=150"}");
-
         return InkWell(
           onTap: () => context.goNamed(RouteNames.hotel,
               params: {"id": e[index].documentId.toString()}),
@@ -37,16 +34,17 @@ class TabViewList extends StatelessWidget {
                   width: 230,
                   height: 240,
                   child: DecoratedBox(
-                    decoration: const BoxDecoration(color: shimmerGrey),
+                    decoration: const BoxDecoration(),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image(
-                        image: NetworkImage(
-                            "${e[index].image!.urlTemplate.toString().split("?")[0]}?w=200&h=200" ??
-                                "https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
+                          image: NetworkImage(
+                              "${e[index].image!.urlTemplate.toString().split("?")[0]}?w=200&h=200" ??
+                                  "https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
+                          height: 150,
+                          alignment: Alignment.center,
+                          filterQuality: FilterQuality.high,
+                          fit: BoxFit.cover),
                     ),
                   ),
                 ),

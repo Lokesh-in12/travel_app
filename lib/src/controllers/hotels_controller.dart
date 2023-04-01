@@ -9,24 +9,45 @@ class HotelsController extends GetxController {
   // ignore: non_constant_identifier_names
   RxList<SingleHotelModel> SingleHotel = <SingleHotelModel>[].obs;
 
+  RxBool isLoading = false.obs;
+
   final HotelServices hotelServices = HotelServices();
 
   Future<void> handleHotels(String query) async {
-    List<HotelModel>? hotelsList = await hotelServices.getHotels(query);
-    if (hotelsList != null) {
-      Hotels.value = hotelsList;
-    } else {
-      Hotels.value = [];
+    try {
+      isLoading(true);
+      List<HotelModel>? hotelsList = await hotelServices.getHotels(query);
+      if (hotelsList != null) {
+        Hotels.value = hotelsList;
+      } else {
+        Hotels.value = [];
+      }
+    } catch (e) {
+      print("error in  handleHotels =>> $e");
+    } finally {
+      isLoading(false);
     }
   }
 
   Future<void> handleSingleHotel(String id) async {
-    List<SingleHotelModel>? singleHotel =
-        await hotelServices.getSingleHotelDets(id);
-    if (singleHotel != null) {
-      SingleHotel.value = singleHotel;
-    } else {
-      SingleHotel.value = [];
+    try {
+      isLoading(true);
+      List<SingleHotelModel>? singleHotel =
+          await hotelServices.getSingleHotelDets(id);
+      print("loeksh is here =>> $singleHotel");
+      if (singleHotel != null) {
+        print("hehehehhehhe");
+        SingleHotel.value = singleHotel;
+        print(
+            "the value of singleHOtel inc controller ==>> ${SingleHotel.value}");
+      } else {
+        print("shit");
+
+        SingleHotel.value = [];
+      }
+    } catch (e) {
+    } finally {
+      isLoading(false);
     }
   }
 }

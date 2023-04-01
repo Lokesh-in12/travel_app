@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:travel_app/core/themes/colors.dart';
+import 'package:travel_app/src/controllers/hotels_controller.dart';
+import 'package:travel_app/src/models/single_hotel_model/single_hotel_model.dart';
 
 class ReviewCard extends StatelessWidget {
-  const ReviewCard({super.key});
+  Content e;
+  ReviewCard({super.key, required this.e});
+
+  final hotelsConroller = Get.find<HotelsController>();
 
   @override
   Widget build(BuildContext context) {
+    print(" 005248 ${e.userProfile?.avatar?.urlTemplate}");
     return SizedBox(
       width: double.maxFinite,
       height: 50,
@@ -18,12 +25,12 @@ class ReviewCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 40,
-                child: CircleAvatar(
-                  backgroundColor: orange,
-                  minRadius: 20,
-                ),
-              ),
+                  height: 40,
+                  child: CircleAvatar(
+                    backgroundColor: orange,
+                    minRadius: 20,
+                    backgroundImage: AssetImage("assets/images/user_img.png"),
+                  )),
               const SizedBox(
                 width: 10,
               ),
@@ -31,13 +38,13 @@ class ReviewCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Lokesh",
+                    "user",
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                   SizedBox(
                     width: 200,
                     child: Text(
-                      "Amazing Location. Must visit!sfhf sfdifv gffuf hhfufgaouefau",
+                      e.title.toString(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.labelSmall,

@@ -35,6 +35,8 @@ class LocationCard extends StatelessWidget {
                         Image.network(
                           "https://images.unsplash.com/photo-1680034200919-26a16a426d34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
                           fit: BoxFit.fill,
+                          alignment: Alignment.center,
+                          filterQuality: FilterQuality.high,
                           width: 170,
                         ),
                         Align(

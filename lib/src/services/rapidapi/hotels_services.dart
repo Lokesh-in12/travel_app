@@ -15,7 +15,7 @@ class HotelServices {
               options: Options(headers: {
                 "X-RapidAPI-Key":
                     // "8e730eeba4mshdc5c16d29213d54p133562jsnf508647d4bfd",
-                    "eca8c5ef86mshe3ca5102bccca54p10dde0jsn7675e809bc4c",
+                    "08970f7f98mshf4e2bac62f10a33p191d9ajsn854dfdd209d6",
                 "X-RapidAPI-Host": "tripadvisor16.p.rapidapi.com"
               }));
 
@@ -24,7 +24,6 @@ class HotelServices {
         if (kDebugMode) {
           print("data is =>> $data");
         }
-        print(data.where((element) => element["image"] != null));
         List FilteredData =
             data.where((element) => element["image"] != null).toList();
         return FilteredData.map((e) => HotelModel.fromJson(e)).toList();
@@ -52,14 +51,14 @@ class HotelServices {
               options: Options(headers: {
                 "X-RapidAPI-Key":
                     // "8e730eeba4mshdc5c16d29213d54p133562jsnf508647d4bfd",
-                    "eca8c5ef86mshe3ca5102bccca54p10dde0jsn7675e809bc4c",
+                    "08970f7f98mshf4e2bac62f10a33p191d9ajsn854dfdd209d6",
                 "X-RapidAPI-Host": "tripadvisor16.p.rapidapi.com"
               }));
 
       if (response.statusCode == 200) {
         List data = [response.data['data']];
         if (kDebugMode) {
-          print("data is =>> $data");
+          print("data is =>> $data"); 
         }
 
         return data.map((e) => SingleHotelModel.fromJson(e)).toList();

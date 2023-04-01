@@ -38,241 +38,261 @@ class _SingleLocationState extends State<SingleLocation>
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
     print("id is => ${widget.id}");
-    print("singleData is  => ${hotelsController.SingleHotel.length}");
     return Obx(() {
-      if (hotelsController.SingleHotel.length == 0) {
+      print("SingleData  => ${hotelsController.SingleHotel.value}");
+      if (hotelsController.isLoading.value) {
         return Scaffold(
           body: Center(
             child:
                 LoadingAnimationWidget.fourRotatingDots(color: black, size: 30),
           ),
         );
-      }
-      return Scaffold(
-        backgroundColor: white,
-        body: Container(
-          width: double.maxFinite,
-          color: shimmerGrey,
-          child: SafeArea(
-            child: SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromARGB(29, 117, 117, 117),
-                        blurRadius: 30,
-                        offset: Offset(0, 10),
-                      )
-                    ]),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Stack(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: 500,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
+      } else {
+        return Scaffold(
+          backgroundColor: white,
+          body: Container(
+            width: double.maxFinite,
+            color: shimmerGrey,
+            child: SafeArea(
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromARGB(29, 117, 117, 117),
+                          blurRadius: 30,
+                          offset: Offset(0, 10),
+                        )
+                      ]),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Stack(
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 500,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: DecorationImage(
                                       image: NetworkImage(
-                                          "${hotelsController.SingleHotel[0].data?.photos?[0].urlTemplate.toString().split("?")[0]}?w=300&h=500" ??
+                                          "${hotelsController.SingleHotel.value[0].photos?[0].urlTemplate.toString().split("?")[0].toString()}?w=300&h=500" ??
                                               "https://images.unsplash.com/photo-1570992032131-e797ab3952fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
-                                      fit: BoxFit.fill)),
+                                      fit: BoxFit.fill,
+                                    )),
+                              ),
                             ),
-                          ),
-                          Align(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 15, horizontal: 10),
+                            Align(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 10),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    OverLayButton(
+                                        icon: CupertinoIcons.left_chevron,
+                                        goBack: true,
+                                        mainCtx: context),
+                                    OverLayButton(
+                                      icon: CupertinoIcons.heart,
+                                      mainCtx: context,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              width: MediaQuery.of(context).size.width - 35,
+                              bottom: 20,
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  OverLayButton(
-                                      icon: CupertinoIcons.left_chevron,
-                                      goBack: true,
-                                      mainCtx: context),
-                                  OverLayButton(
-                                    icon: CupertinoIcons.heart,
-                                    mainCtx: context,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 80,
+                                        ),
+                                        SizedBox(
+                                          width: 180,
+                                          child: Text(
+                                            "${hotelsController.SingleHotel.value[0].title}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineLarge,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        RichText(
+                                            text: TextSpan(children: [
+                                          TextSpan(
+                                              text:
+                                                  "Rs ${hotelsController.SingleHotel.value[0].price!.displayPrice ?? "2000"}",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium),
+                                          TextSpan(
+                                              text: "/day",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall),
+                                        ]))
+                                      ],
+                                    ),
+                                  ),
+                                  //more images
+                                  SizedBox(
+                                    height: 220,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        MoreImgStack(
+                                            index: 1, hotelId: widget.id),
+                                        MoreImgStack(
+                                          index: 2,
+                                          hotelId: widget.id,
+                                        ),
+                                        MoreImgStack(
+                                            index: 3,
+                                            last: true,
+                                            hotelId: widget.id),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    //Outof stack
+
+                    SizedBox(
+                      height: 50,
+                      child: TabBar(
+                          controller: tabController,
+                          indicatorSize: TabBarIndicatorSize.label,
+                          unselectedLabelStyle:
+                              Theme.of(context).textTheme.titleMedium,
+                          labelStyle: Theme.of(context).textTheme.displayMedium,
+                          tabs: const [
+                            Tab(
+                              child: Text(
+                                "Overview",
+                                style: TextStyle(
+                                    color: black, fontFamily: 'Montserrat'),
+                                // style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                            Tab(
+                              child: Text(
+                                "Reviews",
+                                style: TextStyle(
+                                    color: black, fontFamily: 'Montserrat'),
+                              ),
+                            ),
+                          ]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: double.maxFinite,
+                      height: 270,
+                      child: TabBarView(
+                        controller: tabController,
+                        physics: AlwaysScrollableScrollPhysics(),
+                        children: [
+                          SingleChildScrollView(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 40),
+                              width: double.maxFinite,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        //Duration
+                                        OverViewCard(
+                                          title: "Status",
+                                          desc:
+                                              "${hotelsController.SingleHotel.value[0].rankingDetails?.replaceAll("#", "").replaceAll("<a>", "").replaceAll("</a>", "") ?? "#5 in city"}",
+                                          icon: CupertinoIcons.chart_bar_square,
+                                        ),
+                                        const SizedBox(
+                                          width: 25,
+                                        ),
+                                        OverViewCard(
+                                            title: "Rating",
+                                            desc:
+                                                "${hotelsController.SingleHotel.value[0].rating} out of 5",
+                                            icon: CupertinoIcons.star_fill),
+                                      ]),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  //location_desc
+                                  Text(
+                                    "${hotelsController.SingleHotel.value[0].about?.title}",
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                  SizedBox(
+                                    height: 50,
                                   )
                                 ],
                               ),
                             ),
                           ),
-                          Positioned(
-                            width: MediaQuery.of(context).size.width - 35,
-                            bottom: 20,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(
-                                        height: 80,
-                                      ),
-                                      SizedBox(
-                                        width: 180,
-                                        child: Text(
-                                          hotelsController
-                                                  .SingleHotel[0].data?.title
-                                                  .toString() ??
-                                              "title",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headlineLarge,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      RichText(
-                                          text: TextSpan(children: [
-                                        TextSpan(
-                                            text: "\$ 120",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineMedium),
-                                        TextSpan(
-                                            text: "/person",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineSmall),
-                                      ]))
-                                    ],
-                                  ),
-                                ),
-                                //more images
-                                SizedBox(
-                                  height: 220,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      MoreImgStack(),
-                                      MoreImgStack(),
-                                      MoreImgStack(last: true),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
+                          Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 40, vertical: 10),
+                              width: double.maxFinite,
+                              height: 300,
+                              child: ListView.builder(
+                                itemCount: hotelsController.SingleHotel.value[0]
+                                    .reviews?.content?.length,
+                                itemBuilder: (context, index) {
+                                  return ReviewCard(
+                                    e: hotelsController.SingleHotel.value[0]
+                                        .reviews!.content![index],
+                                  );
+                                },
+                              )),
                         ],
                       ),
                     ),
-                  ),
-
-                  //Outof stack
-
-                  SizedBox(
-                    height: 50,
-                    child: TabBar(
-                        controller: tabController,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        unselectedLabelStyle:
-                            Theme.of(context).textTheme.titleMedium,
-                        labelStyle: Theme.of(context).textTheme.displayMedium,
-                        tabs: const [
-                          Tab(
-                            child: Text(
-                              "Overview",
-                              style: TextStyle(
-                                  color: black, fontFamily: 'Montserrat'),
-                              // style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ),
-                          Tab(
-                            child: Text(
-                              "Reviews",
-                              style: TextStyle(
-                                  color: black, fontFamily: 'Montserrat'),
-                            ),
-                          ),
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: double.maxFinite,
-                    height: 270,
-                    child: TabBarView(
-                      controller: tabController,
-                      physics: AlwaysScrollableScrollPhysics(),
-                      children: [
-                        SingleChildScrollView(
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 40),
-                            width: double.maxFinite,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      //Duration
-                                      OverViewCard(
-                                        title: "Duration",
-                                        desc: "5 hours",
-                                        icon: CupertinoIcons.time_solid,
-                                      ),
-                                      const SizedBox(
-                                        width: 25,
-                                      ),
-                                      OverViewCard(
-                                          title: "Rating",
-                                          desc:
-                                              "${hotelsController.SingleHotel[0].data?.rating ?? "4.3"} out of 5",
-                                          icon: CupertinoIcons.star_fill),
-                                    ]),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                //location_desc
-                                Text(
-                                  "${hotelsController.SingleHotel[0].data?.about?.title}" ??
-                                      "desc of location here",
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 40, vertical: 10),
-                            width: double.maxFinite,
-                            height: 300,
-                            child: ListView.builder(
-                              itemCount: 3,
-                              itemBuilder: (context, index) {
-                                return ReviewCard();
-                              },
-                            )),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
+          floatingActionButton: FloatingActionButton.extended(
+              backgroundColor: black,
+              onPressed: () {},
+              label: Text("Book Now")),
+        );
+      }
     });
   }
 }
