@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/src/models/hotel_model.dart';
 import 'package:travel_app/src/models/single_hotel_model/single_hotel_model.dart';
@@ -23,7 +24,9 @@ class HotelsController extends GetxController {
         Hotels.value = [];
       }
     } catch (e) {
-      print("error in  handleHotels =>> $e");
+      if (kDebugMode) {
+        print("error in  handleHotels =>> $e");
+      }
     } finally {
       isLoading(false);
     }
@@ -34,18 +37,30 @@ class HotelsController extends GetxController {
       isLoading(true);
       List<SingleHotelModel>? singleHotel =
           await hotelServices.getSingleHotelDets(id);
-      print("loeksh is here =>> $singleHotel");
+      if (kDebugMode) {
+        print("loeksh is here =>> $singleHotel");
+      }
       if (singleHotel != null) {
-        print("hehehehhehhe");
+        if (kDebugMode) {
+          print("hehehehhehhe");
+        }
         SingleHotel.value = singleHotel;
-        print(
-            "the value of singleHOtel inc controller ==>> ${SingleHotel.value}");
+        if (kDebugMode) {
+          print(
+              // ignore: invalid_use_of_protected_member
+              "the value of singleHOtel inc controller ==>> ${SingleHotel.value}");
+        }
       } else {
-        print("shit");
+        if (kDebugMode) {
+          print("in single hotel else");
+        }
 
         SingleHotel.value = [];
       }
     } catch (e) {
+      if (kDebugMode) {
+        print("error in singleHotel dets =>> $e");
+      }
     } finally {
       isLoading(false);
     }

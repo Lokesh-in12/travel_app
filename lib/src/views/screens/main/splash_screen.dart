@@ -11,7 +11,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // HotelServices.getHotels("bhoapl");
   }
@@ -47,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                 image: AssetImage(
-                  _images[index], 
+                  _images[index],
                 ),
                 alignment: Alignment.bottomLeft,
                 fit: BoxFit.contain,

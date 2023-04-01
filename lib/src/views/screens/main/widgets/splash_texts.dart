@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/views/screens/main/widgets/button.dart';
 
+// ignore: must_be_immutable
 class SplashText extends StatelessWidget {
   String? head;
   String? desc;
@@ -11,7 +12,7 @@ class SplashText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container(                           
       margin: const EdgeInsets.only(top: 90, left: 30, right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

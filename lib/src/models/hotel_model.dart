@@ -20,18 +20,18 @@ class HotelModel {
     documentId = json['documentId'];
     trackingItems = json['trackingItems'];
     secondaryText = json['secondaryText'];
-    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
+    image = json['image'] != null ? Image.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['title'] = this.title;
-    data['geoId'] = this.geoId;
-    data['documentId'] = this.documentId;
-    data['trackingItems'] = this.trackingItems;
-    data['secondaryText'] = this.secondaryText;
-    if (this.image != null) {
-      data['image'] = this.image!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['geoId'] = geoId;
+    data['documentId'] = documentId;
+    data['trackingItems'] = trackingItems;
+    data['secondaryText'] = secondaryText;
+    if (image != null) {
+      data['image'] = image!.toJson();
     }
     return data;
   }
@@ -53,11 +53,11 @@ class Image {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['__typename'] = this.sTypename;
-    data['maxHeight'] = this.maxHeight;
-    data['maxWidth'] = this.maxWidth;
-    data['urlTemplate'] = this.urlTemplate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['__typename'] = sTypename;
+    data['maxHeight'] = maxHeight;
+    data['maxWidth'] = maxWidth;
+    data['urlTemplate'] = urlTemplate;
     return data;
   }
 }

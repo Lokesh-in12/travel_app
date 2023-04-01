@@ -24,6 +24,7 @@ class HotelServices {
         if (kDebugMode) {
           print("data is =>> $data");
         }
+        // ignore: non_constant_identifier_names
         List FilteredData =
             data.where((element) => element["image"] != null).toList();
         return FilteredData.map((e) => HotelModel.fromJson(e)).toList();
@@ -42,7 +43,9 @@ class HotelServices {
   }
 
   Future<List<SingleHotelModel>?> getSingleHotelDets(String id) async {
-    print("in getSingleHotelDets and id => $id");
+    if (kDebugMode) {
+      print("in getSingleHotelDets and id => $id");
+    }
     try {
       Response response =
           // await dio.get("${API_BASE_URL}/searchLocation?query=$query");
@@ -58,12 +61,14 @@ class HotelServices {
       if (response.statusCode == 200) {
         List data = [response.data['data']];
         if (kDebugMode) {
-          print("data is =>> $data"); 
+          print("data is =>> $data");
         }
 
         return data.map((e) => SingleHotelModel.fromJson(e)).toList();
       } else {
-        print("in else of getSingleHotelDets");
+        if (kDebugMode) {
+          print("in else of getSingleHotelDets");
+        }
       }
     } catch (e) {
       if (kDebugMode) {

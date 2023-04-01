@@ -1,4 +1,7 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -19,16 +22,16 @@ class HomeDiscover extends StatefulWidget {
 class _HomeDiscoverState extends State<HomeDiscover>
     with TickerProviderStateMixin {
   List<Tab> tabs = <Tab>[
-    Tab(
+    const Tab(
       text: "Bhopal",
     ),
-    Tab(
+    const Tab(
       text: "Indore",
     ),
-    Tab(
+    const Tab(
       text: "Bengaluru",
     ),
-    Tab(
+    const Tab(
       text: "Mumbai",
     ),
     // Tab(
@@ -50,9 +53,8 @@ class _HomeDiscoverState extends State<HomeDiscover>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _controller = new TabController(length: 4, vsync: this);
+    _controller = TabController(length: 4, vsync: this);
     hotelsController.handleHotels("bhopal");
     _controller.addListener(() {
       if (_controller.indexIsChanging) {
@@ -78,13 +80,15 @@ class _HomeDiscoverState extends State<HomeDiscover>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    print("data is =>>>> ${hotelsController.Hotels.value}");
+    if (kDebugMode) {
+      // ignore: invalid_use_of_protected_member
+      print("data is =>>>> ${hotelsController.Hotels.value}");
+    }
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
@@ -243,11 +247,11 @@ class CirclePainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    Paint _paint = Paint();
-    _paint.color = color;
-    _paint.isAntiAlias = true;
+    Paint paint = Paint();
+    paint.color = color;
+    paint.isAntiAlias = true;
     final Offset circleOffset = Offset(
         configuration.size!.width / 2, configuration.size!.height - radius);
-    canvas.drawCircle(offset + circleOffset, radius, _paint);
+    canvas.drawCircle(offset + circleOffset, radius, paint);
   }
 }

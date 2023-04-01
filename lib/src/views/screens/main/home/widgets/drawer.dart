@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/drawer_row.dart';
 
+// ignore: must_be_immutable
 class MyDrawer extends StatelessWidget {
   BuildContext homeCtx;
   MyDrawer({super.key, required this.homeCtx});

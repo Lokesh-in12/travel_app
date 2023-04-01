@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_app/core/router/router_name.dart';
@@ -12,7 +11,6 @@ import 'package:travel_app/src/views/screens/main/location/open_images.dart';
 import 'package:travel_app/src/views/screens/main/location/single_location.dart';
 import 'package:travel_app/src/views/screens/main/splash_screen.dart';
 
-final GlobalKey<NavigatorState> _rootNavigator = GlobalKey(debugLabel: 'root');
 final GlobalKey<NavigatorState> _shellNavigator =
     GlobalKey(debugLabel: 'shell');
 
@@ -21,14 +19,14 @@ class MyAppRouterConfig {
     GoRouter router = GoRouter(
         // initialLocation: '/${RouteNames.homeDiscover}',
         // initialLocation: '/${RouteNames.search}',
-        // initialLocation: '/${RouteNames.location}/275',
-        initialLocation: RoutePaths.splashScreen,
+        initialLocation: '/${RouteNames.hotel}/275',
+        // initialLocation: RoutePaths.splashScreen,
         routes: [
           //splashRoute
           GoRoute(
             path: RoutePaths.splashScreen,
             name: RouteNames.splashScreen,
-            builder: (context, state) => SplashScreen(),
+            builder: (context, state) => const SplashScreen(),
           ),
 
           GoRoute(

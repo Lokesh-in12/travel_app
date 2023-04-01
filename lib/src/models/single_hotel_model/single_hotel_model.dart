@@ -1,5 +1,3 @@
-
-
 class SingleHotelModel {
   List<Photo>? photos;
   String? title;
@@ -61,7 +59,6 @@ class SingleHotelModel {
           ? null
           : AttractionsNearby.fromJson(
               json['attractionsNearby'] as Map<String, dynamic>),
-  
     );
   }
 
@@ -123,6 +120,7 @@ class AttractionsNearby {
         'content': content?.map((e) => e.toJson()).toList(),
       };
 }
+
 class Avatar {
   int? maxHeight;
   int? maxWidth;
@@ -143,7 +141,6 @@ class Avatar {
       };
 }
 
-
 class Average {
   int? percentage;
   String? count;
@@ -161,7 +158,6 @@ class Average {
       };
 }
 
-
 class BubbleRating {
   int? rating;
   String? numberReviews;
@@ -178,7 +174,6 @@ class BubbleRating {
         'numberReviews': numberReviews,
       };
 }
-
 
 class CardPhoto {
   int? maxHeight;
@@ -200,8 +195,6 @@ class CardPhoto {
       };
 }
 
-
-
 class Content {
   String? title;
   BubbleRating? bubbleRating;
@@ -211,19 +204,16 @@ class Content {
 
   factory Content.fromJson(Map<String, dynamic> json) => Content(
         title: json['title'] as String?,
-        bubbleRating: json['bubbleRating'] == null
-            ? null
-            : BubbleRating.fromJson(json as Map<String, dynamic>),
-        userProfile: json['userProfile'] == null
-            ? null
-            : UserProfile.fromJson(json as Map<String, dynamic>),
+        bubbleRating:
+            json['bubbleRating'] == null ? null : BubbleRating.fromJson(json),
+        userProfile:
+            json['userProfile'] == null ? null : UserProfile.fromJson(json),
       );
 
   Map<String, dynamic> toJson() => {
         'title': title,
       };
 }
-
 
 class Excellent {
   int? percentage;
@@ -242,7 +232,6 @@ class Excellent {
       };
 }
 
-
 class GeoPoint {
   double? latitude;
   double? longitude;
@@ -260,7 +249,6 @@ class GeoPoint {
       };
 }
 
-
 class GettingThere {
   String? title;
   List<dynamic>? content;
@@ -277,8 +265,6 @@ class GettingThere {
         'content': content,
       };
 }
-
-
 
 class Location {
   String? title;
@@ -318,8 +304,6 @@ class Location {
       };
 }
 
-
-
 class MemberProfile {
   ProfileImage? profileImage;
 
@@ -336,7 +320,6 @@ class MemberProfile {
         'profileImage': profileImage?.toJson(),
       };
 }
-
 
 class Photo {
   int? maxHeight;
@@ -375,7 +358,6 @@ class Poor {
       };
 }
 
-
 class Price {
   String? displayPrice;
   dynamic strikeThroughPrice;
@@ -412,21 +394,17 @@ class Price {
       };
 }
 
-
 class ProfileImage {
   ProfileImage();
 
   factory ProfileImage.fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
     throw UnimplementedError('ProfileImage.fromJson($json) is not implemented');
   }
 
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
     throw UnimplementedError();
   }
 }
-
 
 class RatingCounts {
   Average? average;
@@ -470,8 +448,6 @@ class RatingCounts {
       };
 }
 
-
-
 class RestaurantsNearby {
   String? sectionTitle;
   List<Content>? content;
@@ -492,8 +468,6 @@ class RestaurantsNearby {
         'content': content?.map((e) => e.toJson()).toList(),
       };
 }
-
-
 
 class Reviews {
   List<Content>? content;
@@ -523,7 +497,6 @@ class Reviews {
       };
 }
 
-
 class Terrible {
   int? percentage;
   String? count;
@@ -540,8 +513,6 @@ class Terrible {
         'count': count,
       };
 }
-
-
 
 class TopAnswer {
   String? text;
@@ -574,9 +545,7 @@ class TopAnswer {
       };
 }
 
-
-
-class UserProfile { 
+class UserProfile {
   String? deprecatedContributionCount;
   Avatar? avatar;
 
@@ -596,7 +565,6 @@ class UserProfile {
       };
 }
 
-
 class VeryGood {
   int? percentage;
   String? count;
@@ -613,4 +581,3 @@ class VeryGood {
         'count': count,
       };
 }
-

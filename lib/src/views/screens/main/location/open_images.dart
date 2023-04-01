@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:travel_app/core/themes/colors.dart';
 
+// ignore: must_be_immutable
 class OpenImage extends StatefulWidget {
   String? title;
   String? url;

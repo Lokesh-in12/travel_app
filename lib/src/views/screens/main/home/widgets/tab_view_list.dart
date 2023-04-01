@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_app/core/router/router_name.dart';
-import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
-import 'package:travel_app/src/models/hotel_model.dart' hide Image;
 
 class TabViewList extends StatelessWidget {
   TabViewList({
@@ -39,8 +37,7 @@ class TabViewList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       child: Image(
                           image: NetworkImage(
-                              "${e[index].image!.urlTemplate.toString().split("?")[0]}?w=200&h=200" ??
-                                  "https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"),
+                              "${e[index].image!.urlTemplate.toString().split("?")[0]}?w=200&h=200"),
                           height: 150,
                           alignment: Alignment.center,
                           filterQuality: FilterQuality.high,
@@ -64,8 +61,7 @@ class TabViewList extends StatelessWidget {
                                   .title
                                   .toString()
                                   .replaceAll("<b>", "")
-                                  .replaceAll("</b>", "") ??
-                              "Capetown",
+                                  .replaceAll("</b>", ""),
                           style: Theme.of(context).textTheme.displayMedium,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,

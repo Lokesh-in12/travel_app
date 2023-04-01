@@ -381,6 +381,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sliver_fab:
+    dependency: "direct main"
+    description:
+      name: sliver_fab
+      sha256: ad7fb996622d9c1fe8b43422f7b697d0ab774ba8e0516e2b61081b347900591f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   source_span:
     dependency: transitive
     description:

@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:travel_app/src/models/single_hotel_model/single_hotel_model.dart';
 
+// ignore: must_be_immutable
 class ReviewCard extends StatelessWidget {
   Content e;
   ReviewCard({super.key, required this.e});
@@ -12,7 +14,9 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(" 005248 ${e.userProfile?.avatar?.urlTemplate}");
+    if (kDebugMode) {
+      print(" 005248 ${e.userProfile?.avatar?.urlTemplate}");
+    }
     return SizedBox(
       width: double.maxFinite,
       height: 50,

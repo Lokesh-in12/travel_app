@@ -5,7 +5,7 @@ import 'package:travel_app/core/router/router.dart';
 import 'package:travel_app/core/themes/app_theme.dart';
 
 void main() async {
-  await Injections();
+  Injections();
   runApp(const MyApp());
 }
 
