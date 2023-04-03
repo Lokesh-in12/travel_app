@@ -1,31 +1,54 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:travel_app/src/models/hotel_model.dart';
-import 'package:travel_app/src/models/single_hotel_model/single_hotel_model.dart';
+import 'package:travel_app/src/models/popular_hotel_model.dart';
 import 'package:travel_app/src/services/rapidapi/hotels_services.dart';
 
 class HotelsController extends GetxController {
   // ignore: non_constant_identifier_names
-  RxList<HotelModel> Hotels = <HotelModel>[].obs;
+  RxList<PopularHotelModel> Hotels = <PopularHotelModel>[].obs;
   // ignore: non_constant_identifier_names
-  RxList<SingleHotelModel> SingleHotel = <SingleHotelModel>[].obs;
+  RxList<PopularHotelModel> TabHotels = <PopularHotelModel>[].obs;
+
+  RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
 
   RxBool isLoading = false.obs;
 
   final HotelServices hotelServices = HotelServices();
 
-  Future<void> handleHotels(String query) async {
+  Future<void> fetchAllHotels() async {
     try {
       isLoading(true);
-      List<HotelModel>? hotelsList = await hotelServices.getHotels(query);
-      if (hotelsList != null) {
-        Hotels.value = hotelsList;
+      List<PopularHotelModel>? data = await hotelServices.getPopularHotels();
+      print("allhotelsData => is ${data}");
+      if (data != null) {
+        Hotels.value = data;
       } else {
         Hotels.value = [];
       }
     } catch (e) {
+      isLoading(false);
       if (kDebugMode) {
-        print("error in  handleHotels =>> $e");
+        print("err in fetchAllHotels =>> $e");
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
+
+  Future<void> handleTabHotels(String cityName) async {
+    try {
+      print("search city => $cityName");
+      isLoading(true);
+      print(Hotels.where((e) => e.city == cityName));
+      List<PopularHotelModel> data =
+          Hotels.where((element) => element.city == cityName).toList();
+      print("filtered data= > $data");
+      TabHotels.value = data;
+      print("tabs hotels loaded successfully => $TabHotels");
+    } catch (e) {
+      isLoading(false);
+      if (kDebugMode) {
+        print("err in handleTabHotels =>> $e ");
       }
     } finally {
       isLoading(false);
@@ -33,36 +56,10 @@ class HotelsController extends GetxController {
   }
 
   Future<void> handleSingleHotel(String id) async {
-    try {
-      isLoading(true);
-      List<SingleHotelModel>? singleHotel =
-          await hotelServices.getSingleHotelDets(id);
-      if (kDebugMode) {
-        print("loeksh is here =>> $singleHotel");
-      }
-      if (singleHotel != null) {
-        if (kDebugMode) {
-          print("hehehehhehhe");
-        }
-        SingleHotel.value = singleHotel;
-        if (kDebugMode) {
-          print(
-              // ignore: invalid_use_of_protected_member
-              "the value of singleHOtel inc controller ==>> ${SingleHotel.value}");
-        }
-      } else {
-        if (kDebugMode) {
-          print("in single hotel else");
-        }
+    List<PopularHotelModel> data =
+        Hotels.where((elem) => elem.id == int.parse(id)).toList();
+    SingleHotel.value = data;
 
-        SingleHotel.value = [];
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print("error in singleHotel dets =>> $e");
-      }
-    } finally {
-      isLoading(false);
-    }
+    print("one data is =>>> ${data}");
   }
 }

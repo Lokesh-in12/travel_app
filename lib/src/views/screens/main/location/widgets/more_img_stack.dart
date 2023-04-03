@@ -21,13 +21,10 @@ class MoreImgStack extends StatelessWidget {
     return InkWell(
       onTap: () => context.pushNamed(RouteNames.openImage, params: {
         // ignore: invalid_use_of_protected_member
-        "title": hotelsController.SingleHotel.value[0].title.toString(),
+        "title": "",
         // ignore: invalid_use_of_protected_member
-        "url": hotelsController.SingleHotel.value[0].photos![index].urlTemplate
-            .toString()
-            .split("?")[0]
-            .toString(),
-        "id": hotelId.toString()
+        "url": "",
+        "id": ""
       }),
       child: Stack(
         alignment: Alignment.center,
@@ -46,14 +43,13 @@ class MoreImgStack extends StatelessWidget {
             height: 55,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     // ignore: invalid_use_of_protected_member
-                    image: NetworkImage(hotelsController.SingleHotel.value[0]
-                                .photos![index].urlTemplate !=
-                            null
-                        // ignore: invalid_use_of_protected_member
-                        ? "${hotelsController.SingleHotel.value[0].photos![index].urlTemplate.toString().split("?")[0].toString()}?w=300&h=500"
-                        : " https://images.unsplash.com/photo-1574173803062-743fb38eb51d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1436&q=80"),
+                    image: NetworkImage(
+                        "https://images.unsplash.com/photo-1574173803062-743fb38eb51d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1436&q=80"),
+                    // image: NetworkImage(hotelsController.SingleHotel.isNotEmpty
+                    //     ? "${hotelsController.SingleHotel.value[0].photos![index].urlTemplate.toString().split("?")[0].toString()}?w=300&h=500"
+                    //     : "https://images.unsplash.com/photo-1574173803062-743fb38eb51d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1436&q=80"),
                     fit: BoxFit.fill,
                     filterQuality: FilterQuality.high,
                   ),

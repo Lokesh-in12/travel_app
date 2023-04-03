@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_overrides
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,15 +35,12 @@ class _HomeDiscoverState extends State<HomeDiscover>
     const Tab(
       text: "Mumbai",
     ),
-    // Tab(
-    //   text: "Antartica",
-    // ),
-    // Tab(
-    //   text: "South America",
-    // ),
-    // Tab(
-    //   text: "Ocenia",
-    // ),
+    const Tab(
+      text: "Delhi",
+    ),
+    const Tab(
+      text: "Udaipur",
+    ),
   ];
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -54,28 +52,39 @@ class _HomeDiscoverState extends State<HomeDiscover>
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 4, vsync: this);
-    hotelsController.handleHotels("bhopal");
+    async();
+    _controller = TabController(length: 6, vsync: this);
+
     _controller.addListener(() {
       if (_controller.indexIsChanging) {
-        hotelsController.Hotels.value = [];
         switch (_controller.index) {
           case 0:
-            hotelsController.handleHotels("bhopal");
+            hotelsController.handleTabHotels("Bhopal");
             break;
           case 1:
-            hotelsController.handleHotels("indore");
+            hotelsController.handleTabHotels("Indore");
             break;
           case 2:
-            hotelsController.handleHotels("bangalore");
+            hotelsController.handleTabHotels("Bangalore");
             break;
           case 3:
-            hotelsController.handleHotels("mumbai");
+            hotelsController.handleTabHotels("Mumbai");
+            break;
+          case 4:
+            hotelsController.handleTabHotels("Delhi");
+            break;
+          case 5:
+            hotelsController.handleTabHotels("Udaipur");
             break;
           default:
         }
       }
     });
+  }
+
+  Future<void> async() async {
+    await hotelsController.fetchAllHotels();
+    await hotelsController.handleTabHotels("Bhopal");
   }
 
   @override
@@ -88,6 +97,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
     if (kDebugMode) {
       // ignore: invalid_use_of_protected_member
       print("data is =>>>> ${hotelsController.Hotels.value}");
+      print("Popular hotels ${hotelsController.Hotels.value}");
     }
     return Scaffold(
         key: scaffoldKey,
@@ -109,7 +119,6 @@ class _HomeDiscoverState extends State<HomeDiscover>
         ),
         drawer: MyDrawer(homeCtx: context),
         body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
           child: RefreshIndicator(
             onRefresh: () async {
               debugPrint("refresh");
@@ -140,6 +149,8 @@ class _HomeDiscoverState extends State<HomeDiscover>
                   ),
                   //tab items
                   Obx(() {
+                    print("data is =>>>> ${hotelsController.Hotels.value}");
+
                     if (hotelsController.Hotels.isEmpty) {
                       return Center(
                         child: LoadingAnimationWidget.fourRotatingDots(
@@ -158,7 +169,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
 
                   //SizedBox
                   const SizedBox(
-                    height: 17,
+                    height: 25,
                   ),
                   // Column(
                   //   crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +206,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Top trips",
+                            "Popular Hotels",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
@@ -207,16 +218,20 @@ class _HomeDiscoverState extends State<HomeDiscover>
                       const SizedBox(
                         height: 20,
                       ),
-                      Wrap(
-                        spacing: 12,
-                        runSpacing: 20,
-                        children: const [
-                          LocationCard(),
-                          LocationCard(),
-                          LocationCard(),
-                          LocationCard(),
-                        ],
-                      )
+                      Obx(() => Wrap(
+                            spacing: 12,
+                            runSpacing: 20,
+                            children: hotelsController.Hotels.map(
+                                (element) => LocationCard(
+                                      e: element,
+                                    )).toList(),
+                            // children: const [
+                            //   LocationCard(),
+                            //   LocationCard(),
+                            //   LocationCard(),
+                            //   LocationCard(),
+                            // ],
+                          ))
                     ],
                   )
                 ],
