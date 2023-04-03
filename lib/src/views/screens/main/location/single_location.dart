@@ -13,6 +13,7 @@ import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:travel_app/src/views/screens/main/location/widgets/more_img_stack.dart';
 import 'package:travel_app/src/views/screens/main/location/widgets/overlay_btn.dart';
 import 'package:travel_app/src/views/screens/main/location/widgets/overview_card.dart';
+import 'package:travel_app/src/views/screens/main/location/widgets/paragraphs.dart';
 import 'package:travel_app/src/views/screens/main/location/widgets/review_card.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -92,7 +93,6 @@ class _SingleLocationState extends State<SingleLocation>
                                   .toString()),
                               fit: BoxFit.fill,
                               filterQuality: FilterQuality.high,
-                              alignment: Alignment.centerLeft
                             )),
                       ),
                     ),
@@ -156,10 +156,14 @@ class _SingleLocationState extends State<SingleLocation>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Rating",
+                            " Rating ${hotelsController.TabHotels.value[0].rating}",
                             style: Theme.of(context).textTheme.labelSmall,
+                          ),
+                          SizedBox(
+                            height: 5,
                           ),
                           RatingBar.builder(
                             initialRating: double.parse(hotelsController
@@ -185,43 +189,41 @@ class _SingleLocationState extends State<SingleLocation>
                         ],
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Charges",
                             style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                          SizedBox(
+                            height: 5,
                           ),
                           RichText(
                               text: TextSpan(children: [
                             TextSpan(
                                 text:
                                     // ignore: invalid_use_of_protected_member
-                                    hotelsController.SingleHotel.value[0].price,
-                                style:
-                                    Theme.of(context).textTheme.displayMedium),
+                                    "Rs ${hotelsController.SingleHotel.value[0].price}",
+                                style: Theme.of(context).textTheme.titleSmall),
                             TextSpan(
                                 text: "/day",
-                                style: Theme.of(context).textTheme.labelLarge),
+                                style: Theme.of(context).textTheme.titleSmall),
                           ])),
                         ],
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 30,
+                  ),
+                  Paragraphs(
+                    isThis: "About",
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "About",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    hotelsController.SingleHotel.value[0].about.toString(),
-                    style: Theme.of(context).textTheme.labelSmall,
+                  Paragraphs(
+                    isThis: "Location",
                   )
                 ]),
               ),

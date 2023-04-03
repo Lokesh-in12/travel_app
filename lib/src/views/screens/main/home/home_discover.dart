@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_overrides
 
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +52,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
   void initState() {
     super.initState();
     async();
-    _controller = TabController(length: 6, vsync: this);
+    _controller = TabController(length: tabs.length, vsync: this);
 
     _controller.addListener(() {
       if (_controller.indexIsChanging) {
@@ -149,12 +148,35 @@ class _HomeDiscoverState extends State<HomeDiscover>
                   ),
                   //tab items
                   Obx(() {
-                    print("data is =>>>> ${hotelsController.Hotels.value}");
+                    if (kDebugMode) {
+                      print("data is =>>>> ${hotelsController.Hotels.value}");
+                    }
 
                     if (hotelsController.Hotels.isEmpty) {
-                      return Center(
-                        child: LoadingAnimationWidget.fourRotatingDots(
-                            color: black, size: 30),
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 300,
+                        child: ListView.separated(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 10,
+                          ),
+                          itemCount: 5,
+                          itemBuilder: (context, index) => SizedBox(
+                            height: 230,
+                            width: 230,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  color: shimmerGrey,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                child: LoadingAnimationWidget.fourRotatingDots(
+                                    color: black, size: 30),
+                              ),
+                            ),
+                          ),
+                        ),
                       );
                     }
                     return SizedBox(
@@ -167,7 +189,6 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     );
                   }),
 
-                  //SizedBox
                   const SizedBox(
                     height: 25,
                   ),
@@ -218,20 +239,22 @@ class _HomeDiscoverState extends State<HomeDiscover>
                       const SizedBox(
                         height: 20,
                       ),
-                      Obx(() => Wrap(
-                            spacing: 12,
-                            runSpacing: 20,
-                            children: hotelsController.Hotels.map(
-                                (element) => LocationCard(
-                                      e: element,
-                                    )).toList(),
-                            // children: const [
-                            //   LocationCard(),
-                            //   LocationCard(),
-                            //   LocationCard(),
-                            //   LocationCard(),
-                            // ],
-                          ))
+                      Obx(() {
+                        if (hotelsController.Hotels.length == 0) {
+                          return Center(
+                            child: LoadingAnimationWidget.fourRotatingDots(
+                                color: black, size: 30),
+                          );
+                        }
+                        return Wrap(
+                          spacing: 12,
+                          runSpacing: 20,
+                          children: hotelsController.Hotels.map(
+                              (element) => LocationCard(
+                                    e: element,
+                                  )).toList(),
+                        );
+                      })
                     ],
                   )
                 ],
