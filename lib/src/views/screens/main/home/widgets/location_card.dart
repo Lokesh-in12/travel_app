@@ -7,6 +7,7 @@ import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/models/popular_hotel_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+// ignore: must_be_immutable
 class LocationCard extends StatelessWidget {
   PopularHotelModel e;
   LocationCard({super.key, required this.e});

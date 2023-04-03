@@ -9,6 +9,7 @@ class HotelsController extends GetxController {
   // ignore: non_constant_identifier_names
   RxList<PopularHotelModel> TabHotels = <PopularHotelModel>[].obs;
 
+  // ignore: non_constant_identifier_names
   RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
 
   RxBool isLoading = false.obs;
@@ -19,7 +20,9 @@ class HotelsController extends GetxController {
     try {
       isLoading(true);
       List<PopularHotelModel>? data = await hotelServices.getPopularHotels();
-      print("allhotelsData => is ${data}");
+      if (kDebugMode) {
+        print("allhotelsData => is $data");
+      }
       if (data != null) {
         Hotels.value = data;
       } else {
@@ -37,14 +40,22 @@ class HotelsController extends GetxController {
 
   Future<void> handleTabHotels(String cityName) async {
     try {
-      print("search city => $cityName");
+      if (kDebugMode) {
+        print("search city => $cityName");
+      }
       isLoading(true);
-      print(Hotels.where((e) => e.city == cityName));
+      if (kDebugMode) {
+        print(Hotels.where((e) => e.city == cityName));
+      }
       List<PopularHotelModel> data =
           Hotels.where((element) => element.city == cityName).toList();
-      print("filtered data= > $data");
+      if (kDebugMode) {
+        print("filtered data= > $data");
+      }
       TabHotels.value = data;
-      print("tabs hotels loaded successfully => $TabHotels");
+      if (kDebugMode) {
+        print("tabs hotels loaded successfully => $TabHotels");
+      }
     } catch (e) {
       isLoading(false);
       if (kDebugMode) {
@@ -60,6 +71,8 @@ class HotelsController extends GetxController {
         Hotels.where((elem) => elem.id == int.parse(id)).toList();
     SingleHotel.value = data;
 
-    print("one data is =>>> ${data}");
+    if (kDebugMode) {
+      print("one data is =>>> $data");
+    }
   }
 }

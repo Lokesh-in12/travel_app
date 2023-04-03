@@ -3,18 +3,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:travel_app/core/router/router_name.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
-import 'package:travel_app/src/views/screens/main/location/widgets/more_img_stack.dart';
-import 'package:travel_app/src/views/screens/main/location/widgets/overlay_btn.dart';
-import 'package:travel_app/src/views/screens/main/location/widgets/overview_card.dart';
 import 'package:travel_app/src/views/screens/main/location/widgets/paragraphs.dart';
-import 'package:travel_app/src/views/screens/main/location/widgets/review_card.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 // ignore: must_be_immutable
@@ -38,16 +33,17 @@ class _SingleLocationState extends State<SingleLocation>
   }
 
   Future<void> async() async {
-    print("id => ${widget.id}");
+    if (kDebugMode) {
+      print("id => ${widget.id}");
+    }
     await hotelsController.handleSingleHotel(widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 2, vsync: this);
-
     return Obx(() {
-      if (hotelsController.SingleHotel.value.length == 0) {
+      // ignore: invalid_use_of_protected_member
+      if (hotelsController.SingleHotel.value.isEmpty) {
         return Scaffold(
           body: Center(
             child:
@@ -89,9 +85,13 @@ class _SingleLocationState extends State<SingleLocation>
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                               image: NetworkImage(hotelsController
-                                  .SingleHotel.value[0].images
+                                  // ignore: invalid_use_of_protected_member
+                                  .SingleHotel
+                                  // ignore: invalid_use_of_protected_member
+                                  .value[0]
+                                  .images
                                   .toString()),
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                               filterQuality: FilterQuality.high,
                             )),
                       ),
@@ -106,12 +106,8 @@ class _SingleLocationState extends State<SingleLocation>
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              // OverLayButton(
-                              //   icon: CupertinoIcons.heart,
-                              //   mainCtx: context,
-                              // )
-                            ],
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [],
                           ),
                         ),
                       ),
@@ -159,6 +155,7 @@ class _SingleLocationState extends State<SingleLocation>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
+                            // ignore: invalid_use_of_protected_member
                             " Rating ${hotelsController.TabHotels.value[0].rating}",
                             style: Theme.of(context).textTheme.labelSmall,
                           ),
@@ -167,7 +164,11 @@ class _SingleLocationState extends State<SingleLocation>
                           ),
                           RatingBar.builder(
                             initialRating: double.parse(hotelsController
-                                .TabHotels.value[0].rating
+                                // ignore: invalid_use_of_protected_member
+                                .TabHotels
+                                // ignore: invalid_use_of_protected_member
+                                .value[0]
+                                .rating
                                 .toString()),
                             minRating: 1,
                             direction: Axis.horizontal,

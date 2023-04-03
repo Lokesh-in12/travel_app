@@ -5,8 +5,6 @@ class RoutePaths {
   static const trending = '/trending';
   static const search = '/search';
   static const profile = '/profile';
-  // static const hotel = '/hotel/:id';
   static const hotel = '/hotel/:id';
   static const openImage = 'openImage/:title/:url';
-
 }

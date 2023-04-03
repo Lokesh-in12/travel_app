@@ -17,6 +17,7 @@ class TabViewList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
+      // ignore: invalid_use_of_protected_member
       print("vuftyxddc => ${hotelsController.TabHotels.value}");
     }
     return ListView.builder(

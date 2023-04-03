@@ -30,15 +30,15 @@ class PopularHotelModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['about'] = this.about;
-    data['images'] = this.images;
-    data['city'] = this.city;
-    data['rating'] = this.rating;
-    data['location'] = this.location;
-    data['price'] = this.price;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['about'] = about;
+    data['images'] = images;
+    data['city'] = city;
+    data['rating'] = rating;
+    data['location'] = location;
+    data['price'] = price;
     return data;
   }
 }

@@ -96,6 +96,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
     if (kDebugMode) {
       // ignore: invalid_use_of_protected_member
       print("data is =>>>> ${hotelsController.Hotels.value}");
+      // ignore: invalid_use_of_protected_member
       print("Popular hotels ${hotelsController.Hotels.value}");
     }
     return Scaffold(
@@ -149,6 +150,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                   //tab items
                   Obx(() {
                     if (kDebugMode) {
+                      // ignore: invalid_use_of_protected_member
                       print("data is =>>>> ${hotelsController.Hotels.value}");
                     }
 
@@ -240,7 +242,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                         height: 20,
                       ),
                       Obx(() {
-                        if (hotelsController.Hotels.length == 0) {
+                        if (hotelsController.Hotels.isEmpty) {
                           return Center(
                             child: LoadingAnimationWidget.fourRotatingDots(
                                 color: black, size: 30),
