@@ -61,9 +61,7 @@ class HotelsController extends GetxController {
           await hotelServices.getHotelByCity(cityName);
       if (data != null) {
         TabHotels.value = data;
-      }
-      if (data == []) {
-        print("No data received");
+        isLoading(false);
       }
     } catch (e) {
       isLoading(false);
@@ -79,11 +77,14 @@ class HotelsController extends GetxController {
     isLoading(true);
     print("id => $id");
     List<PopularHotelModel> data =
-        Hotels.where((elem) => elem.id == int.parse(id)).toList();
-    SingleHotel.value = data;
-    if (kDebugMode) {
-      print("one data is =>>> $data");
+        Hotels.where((elem) => elem.id.toString() == id).toList();
+
+    if (data.length == 0) {
+      List<PopularHotelModel> alterData =
+          TabHotels.where((elem) => elem.id.toString() == id).toList();
+      SingleHotel.value = alterData;
+    } else {
+      SingleHotel.value = data;
     }
-    isLoading(false);
   }
 }

@@ -279,7 +279,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                       //       (element) => LocationCard(
                       //             e: element,
                       //           )).toList(),
-                      // );
+                      // ); 
                       return SingleChildScrollView(
                         physics: const NeverScrollableScrollPhysics(),
                         child: GridView.builder(

@@ -27,8 +27,9 @@ class TabViewList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
         return InkWell(
-          onTap: () => context.goNamed(RouteNames.hotel,
-              params: {"id": "${hotelsController.TabHotels.value[index].id}"}),
+          onTap: () => context.goNamed(RouteNames.hotel, params: {
+            "id": "${hotelsController.TabHotels[index].id.toString()}"
+          }),
           child: Container(
             margin: const EdgeInsets.only(right: 10),
             padding: const EdgeInsets.symmetric(

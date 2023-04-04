@@ -14,7 +14,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 // ignore: must_be_immutable
 class SingleLocation extends StatefulWidget {
-  String id;
+  String? id;
   bool? popular;
   SingleLocation({super.key, required this.id, this.popular});
 
@@ -36,13 +36,14 @@ class _SingleLocationState extends State<SingleLocation>
     if (kDebugMode) {
       print("id => ${widget.id.runtimeType}");
     }
-    await hotelsController.handleSingleHotel(widget.id);
+    await hotelsController.handleSingleHotel(widget.id!);
   }
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       // ignore: invalid_use_of_protected_member
+      print("singleData array => ${hotelsController.SingleHotel.value.length}");
       if (hotelsController.SingleHotel.value.length < 1) {
         return Scaffold(
           body: Center(

@@ -15,20 +15,18 @@ class _TrendingScreenState extends State<TrendingScreen> {
     "bang.jpg",
     "bhopal.jpg",
     "delhi.jpg",
-    "goa.jpg",
     "indore.jpg",
     "mumbai.jpg",
     "udaipur.jpg"
   ];
   List name = [
-    "AGRA",
-    "BANGLORE",
-    "BHOPAL",
-    "DELHI",
-    "GOA",
-    "INDORE",
-    "MUMBAI",
-    "UDAIPUR"
+    "Agra",
+    "Bangalore",
+    "Bhopal",
+    "Delhi",
+    "Indore",
+    "Mumbai",
+    "Udaipur"
   ];
   @override
   Widget build(BuildContext context) {
