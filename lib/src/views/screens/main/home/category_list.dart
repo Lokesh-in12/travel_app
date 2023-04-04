@@ -47,8 +47,8 @@ class _CategoryListState extends State<CategoryList> {
         appBar: AppBar(
           foregroundColor: black,
           leading: InkWell(
-            onTap: ()=> context.goNamed(RouteNames.trending),
-            child: Icon(CupertinoIcons.left_chevron)),
+              onTap: () => context.goNamed(RouteNames.trending),
+              child: Icon(CupertinoIcons.left_chevron)),
           title: Text(
             widget.city!,
             style: Theme.of(context).textTheme.displayMedium,
@@ -79,6 +79,12 @@ class _CategoryListState extends State<CategoryList> {
                                 mainAxisSpacing: 20,
                                 crossAxisSpacing: 10),
                         itemBuilder: (BuildContext context, int index) {
+                          if (hotelsController.isLoading.value) {
+                            return Center(
+                              child: LoadingAnimationWidget.fourRotatingDots(
+                                  color: black, size: 35),
+                            );
+                          }
                           return LocationCard(
                               e: hotelsController.TabHotels[index]);
                         }),
