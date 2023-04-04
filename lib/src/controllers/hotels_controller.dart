@@ -13,6 +13,7 @@ class HotelsController extends GetxController {
   RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
 
   RxBool isLoading = false.obs;
+  RxBool hasMoreData = true.obs;
   RxInt Page = 1.obs;
   RxInt TotalDataLength = 0.obs;
 
@@ -36,6 +37,9 @@ class HotelsController extends GetxController {
       }
       if (data != null) {
         Hotels.addAll(data);
+        Hotels.length > TotalDataLength.value
+            ? hasMoreData(false)
+            : hasMoreData(true);
       } else {
         Hotels.value = [];
       }

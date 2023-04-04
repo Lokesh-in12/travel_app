@@ -32,6 +32,7 @@ class HotelServices {
 
   Future<List<PopularHotelModel>?> getPopularHotels(page) async {
     try {
+      print("page is =>> $page");
       Response response = await dio.get(
         "$API_BASE_URL/popularHotels?page=$page",
       );

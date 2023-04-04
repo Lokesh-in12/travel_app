@@ -46,13 +46,32 @@ class _HomeDiscoverState extends State<HomeDiscover>
   final hotelsController = Get.find<HotelsController>();
   final bottomController = Get.find<BottomController>();
 
-  late TabController _controller;
   late ScrollController scrollController;
+  late TabController _controller;
 
   @override
   void initState() {
+    scrollController = ScrollController();
     super.initState();
     async();
+    scrollController.addListener(() async {
+      if (scrollController.position.pixels >=
+              scrollController.position.maxScrollExtent &&
+          hotelsController.isLoading.value == false) {
+        print("pass one if");
+        if (hotelsController.hasMoreData.value) {
+          print("pass 2 if");
+          hotelsController.Page.value++;
+          await hotelsController.fetchAllHotels();
+          hotelsController.hasMoreData.value =
+              hotelsController.Hotels.value.length ==
+                      hotelsController.TotalDataLength.value
+                  ? false
+                  : true;
+        }
+      }
+    });
+
     _controller = TabController(length: tabs.length, vsync: this);
 
     _controller.addListener(() {
@@ -121,168 +140,176 @@ class _HomeDiscoverState extends State<HomeDiscover>
         ),
         drawer: MyDrawer(homeCtx: context),
         body: SingleChildScrollView(
-          child: RefreshIndicator(
-            onRefresh: () async {
-              debugPrint("refresh");
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Discover",
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  TabBar(
-                    unselectedLabelColor: lightGrey,
-                    labelColor: black,
-                    isScrollable: true,
-                    controller: _controller,
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    automaticIndicatorColorAdjustment: true,
-                    labelStyle: Theme.of(context).textTheme.bodySmall,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: CircleTabIndicator(color: black, radius: 4),
-                    tabs: tabs,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //tab items
-                  Obx(() {
-                    if (kDebugMode) {
-                      // ignore: invalid_use_of_protected_member
-                      print("data is =>>>> ${hotelsController.Hotels.value}");
-                      print(
-                          "TotalDataLength =>>>> ${hotelsController.TotalDataLength.value}");
-                    }
-                    if (hotelsController.TabHotels.isEmpty) {
-                      return SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 300,
-                        child: ListView.separated(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (context, index) => const SizedBox(
-                            width: 10,
-                          ),
-                          itemCount: 5,
-                          itemBuilder: (context, index) => SizedBox(
-                            height: 230,
-                            width: 230,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: shimmerGrey,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                child: LoadingAnimationWidget.fourRotatingDots(
-                                    color: black, size: 30),
-                              ),
+          controller: scrollController,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Discover",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                TabBar(
+                  unselectedLabelColor: lightGrey,
+                  labelColor: black,
+                  isScrollable: true,
+                  controller: _controller,
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  automaticIndicatorColorAdjustment: true,
+                  labelStyle: Theme.of(context).textTheme.bodySmall,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: CircleTabIndicator(color: black, radius: 4),
+                  tabs: tabs,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                //tab items
+                Obx(() {
+                  if (kDebugMode) {
+                    // ignore: invalid_use_of_protected_member
+                    print(
+                        "Hotels.length =>>>> ${hotelsController.Hotels.length}");
+                    print(
+                        "huh=>>>> Hotels.length${hotelsController.Hotels.length} and TotalMax = >");
+                    print(
+                        "TotalDataLength =>>>> ${hotelsController.TotalDataLength.value}");
+                  }
+                  if (hotelsController.TabHotels.isEmpty) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        separatorBuilder: (context, index) => const SizedBox(
+                          width: 10,
+                        ),
+                        itemCount: 5,
+                        itemBuilder: (context, index) => SizedBox(
+                          height: 230,
+                          width: 230,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: shimmerGrey,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: LoadingAnimationWidget.fourRotatingDots(
+                                  color: black, size: 30),
                             ),
                           ),
                         ),
-                      );
-                    }
-                    return SizedBox(
-                      width: double.maxFinite,
-                      height: 300,
-                      child: TabBarView(
-                        controller: _controller,
-                        children: tabs.map((e) => TabViewList()).toList(),
                       ),
                     );
-                  }),
+                  }
+                  return SizedBox(
+                    width: double.maxFinite,
+                    height: 300,
+                    child: TabBarView(
+                      controller: _controller,
+                      children: tabs.map((e) => TabViewList()).toList(),
+                    ),
+                  );
+                }),
 
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  // Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     Text(
-                  //       "Category",
-                  //       style: Theme.of(context).textTheme.displayMedium,
-                  //     ),
-                  //     const SizedBox(
-                  //       height: 15,
-                  //     ),
-                  //     Container(
-                  //       width: double.maxFinite,
-                  //       height: 40,
-                  //       child: ListView.separated(
-                  //         separatorBuilder: (context, index) => const SizedBox(
-                  //           width: 15,
-                  //         ),
-                  //         scrollDirection: Axis.horizontal,
-                  //         itemCount: 5,
-                  //         itemBuilder: (context, index) {
-                  //           return const CategoryCard();
-                  //         },
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
+                const SizedBox(
+                  height: 25,
+                ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       "Category",
+                //       style: Theme.of(context).textTheme.displayMedium,
+                //     ),
+                //     const SizedBox(
+                //       height: 15,
+                //     ),
+                //     Container(
+                //       width: double.maxFinite,
+                //       height: 40,
+                //       child: ListView.separated(
+                //         separatorBuilder: (context, index) => const SizedBox(
+                //           width: 15,
+                //         ),
+                //         scrollDirection: Axis.horizontal,
+                //         itemCount: 5,
+                //         itemBuilder: (context, index) {
+                //           return const CategoryCard();
+                //         },
+                //       ),
+                //     )
+                //   ],
+                // ),
 
-                  //Popular Hotels
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Popular Hotels",
-                            style: Theme.of(context).textTheme.displayMedium,
-                          ),
-                          Text(
-                            "",
-                            style: Theme.of(context).textTheme.labelSmall,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Obx(() {
-                        if (hotelsController.Hotels.isEmpty) {
-                          return Center(
-                            child: LoadingAnimationWidget.fourRotatingDots(
-                                color: black, size: 30),
-                          );
-                        }
-                        // return Wrap(
-                        //   spacing: 12,
-                        //   runSpacing: 20,
-                        //   children: hotelsController.Hotels.map(
-                        //       (element) => LocationCard(
-                        //             e: element,
-                        //           )).toList(),
-                        // );
-                        return SingleChildScrollView(
-                          physics: const NeverScrollableScrollPhysics(),
-                          child: GridView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: hotelsController.Hotels.length + 0,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    childAspectRatio: 0.72,
-                                    mainAxisSpacing: 20,
-                                    crossAxisSpacing: 10),
-                            itemBuilder: (BuildContext context, int index) {
-                              return LocationCard(
-                                  e: hotelsController.Hotels[index]);
-                            },
-                          ),
+                //Popular Hotels
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Popular Hotels",
+                          style: Theme.of(context).textTheme.displayMedium,
+                        ),
+                        Text(
+                          "",
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Obx(() {
+                      print(
+                          "HasMoreData is => ${hotelsController.hasMoreData.value}");
+                      if (hotelsController.Hotels.isEmpty) {
+                        return Center(
+                          child: LoadingAnimationWidget.fourRotatingDots(
+                              color: black, size: 30),
                         );
-                      })
-                    ],
-                  )
-                ],
-              ),
+                      }
+                      // return Wrap(
+                      //   spacing: 12,
+                      //   runSpacing: 20,
+                      //   children: hotelsController.Hotels.map(
+                      //       (element) => LocationCard(
+                      //             e: element,
+                      //           )).toList(),
+                      // );
+                      return SingleChildScrollView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        child: GridView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: hotelsController.Hotels.length +
+                              (hotelsController.hasMoreData.value ? 1 : 0),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 0.72,
+                                  mainAxisSpacing: 20,
+                                  crossAxisSpacing: 10),
+                          itemBuilder: (BuildContext context, int index) {
+                            if (hotelsController.Hotels.length == index) {
+                              return Center(
+                                child: LoadingAnimationWidget.fourRotatingDots(
+                                    color: black, size: 30),
+                              );
+                            }
+                            return LocationCard(
+                                e: hotelsController.Hotels[index]);
+                          },
+                        ),
+                      );
+                    })
+                  ],
+                )
+              ],
             ),
           ),
         ));
