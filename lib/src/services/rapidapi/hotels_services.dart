@@ -6,10 +6,34 @@ import 'package:travel_app/core/consts/consts.dart';
 class HotelServices {
   final Dio dio = Dio();
 
-  Future<List<PopularHotelModel>?> getPopularHotels() async {
+  Future<int?> totalLengthOfData() async {
     try {
       Response response = await dio.get(
-        "$API_BASE_URL/popularHotels",
+        "$API_BASE_URL/allPopularHotels",
+      );
+
+      if (response.statusCode == 200) {
+        int data = response.data;
+        if (kDebugMode) {
+          print("myapi data is =>> $data");
+          print("totalLengthOfData Data Loaded Successfully!");
+        }
+
+        return data;
+      } else {
+        if (kDebugMode) {
+          print("in else of totalLengthOfData");
+        }
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<PopularHotelModel>?> getPopularHotels(page) async {
+    try {
+      Response response = await dio.get(
+        "$API_BASE_URL/popularHotels?page=$page",
       );
 
       if (response.statusCode == 200) {
@@ -28,6 +52,36 @@ class HotelServices {
     } catch (e) {
       if (kDebugMode) {
         print("err in getPopularHotels =>> $e");
+      }
+      rethrow;
+    } finally {}
+    return null;
+  }
+
+  //handle Hotels by cityName
+  Future<List<PopularHotelModel>?> getHotelByCity(String city) async {
+    print("ciyName in services = > $city");
+    try {
+      Response response = await dio.get(
+        "$API_BASE_URL/hotelByCity?city=$city",
+      );
+
+      if (response.statusCode == 200) {
+        List data = response.data;
+        if (kDebugMode) {
+          print("getHotelByCity =>> $data");
+          print("getHotelByCity Data Loaded Successfully!");
+        }
+
+        return data.map((e) => PopularHotelModel.fromJson(e)).toList();
+      } else {
+        if (kDebugMode) {
+          print("in else of getHotelByCity");
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("err in getHotelByCity =>> $e");
       }
       rethrow;
     } finally {}

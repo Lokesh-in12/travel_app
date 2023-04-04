@@ -47,6 +47,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
   final bottomController = Get.find<BottomController>();
 
   late TabController _controller;
+  late ScrollController scrollController;
 
   @override
   void initState() {
@@ -82,6 +83,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
   }
 
   Future<void> async() async {
+    await hotelsController.setTotalLength();
     await hotelsController.fetchAllHotels();
     await hotelsController.handleTabHotels("Bhopal");
   }
@@ -152,9 +154,10 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     if (kDebugMode) {
                       // ignore: invalid_use_of_protected_member
                       print("data is =>>>> ${hotelsController.Hotels.value}");
+                      print(
+                          "TotalDataLength =>>>> ${hotelsController.TotalDataLength.value}");
                     }
-
-                    if (hotelsController.Hotels.isEmpty) {
+                    if (hotelsController.TabHotels.isEmpty) {
                       return SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 300,
@@ -221,7 +224,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                   //   ],
                   // ),
 
-                  //top trips
+                  //Popular Hotels
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -233,7 +236,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                           Text(
-                            "Explore More",
+                            "",
                             style: Theme.of(context).textTheme.labelSmall,
                           ),
                         ],
@@ -248,13 +251,32 @@ class _HomeDiscoverState extends State<HomeDiscover>
                                 color: black, size: 30),
                           );
                         }
-                        return Wrap(
-                          spacing: 12,
-                          runSpacing: 20,
-                          children: hotelsController.Hotels.map(
-                              (element) => LocationCard(
-                                    e: element,
-                                  )).toList(),
+                        // return Wrap(
+                        //   spacing: 12,
+                        //   runSpacing: 20,
+                        //   children: hotelsController.Hotels.map(
+                        //       (element) => LocationCard(
+                        //             e: element,
+                        //           )).toList(),
+                        // );
+                        return SingleChildScrollView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          child: GridView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: hotelsController.Hotels.length + 0,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 0.72,
+                                    mainAxisSpacing: 20,
+                                    crossAxisSpacing: 10),
+                            itemBuilder: (BuildContext context, int index) {
+                              return LocationCard(
+                                  e: hotelsController.Hotels[index]);
+                            },
+                          ),
                         );
                       })
                     ],

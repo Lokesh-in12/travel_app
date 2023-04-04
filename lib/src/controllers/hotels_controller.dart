@@ -13,18 +13,29 @@ class HotelsController extends GetxController {
   RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
 
   RxBool isLoading = false.obs;
+  RxInt Page = 1.obs;
+  RxInt TotalDataLength = 0.obs;
 
   final HotelServices hotelServices = HotelServices();
 
+  Future<void> setTotalLength() async {
+    int? length = await hotelServices.totalLengthOfData();
+    if (length != null) {
+      TotalDataLength.value = length;
+    } else {
+      TotalDataLength.value = 0;
+    }
+  }
+
   Future<void> fetchAllHotels() async {
     try {
-      isLoading(true);
-      List<PopularHotelModel>? data = await hotelServices.getPopularHotels();
+      List<PopularHotelModel>? data =
+          await hotelServices.getPopularHotels(Page);
       if (kDebugMode) {
         print("allhotelsData => is $data");
       }
       if (data != null) {
-        Hotels.value = data;
+        Hotels.addAll(data);
       } else {
         Hotels.value = [];
       }
@@ -39,22 +50,16 @@ class HotelsController extends GetxController {
   }
 
   Future<void> handleTabHotels(String cityName) async {
+    print("ciyName in controller = > $cityName");
     try {
-      if (kDebugMode) {
-        print("search city => $cityName");
-      }
       isLoading(true);
-      if (kDebugMode) {
-        print(Hotels.where((e) => e.city == cityName));
+      List<PopularHotelModel>? data =
+          await hotelServices.getHotelByCity(cityName);
+      if (data != null) {
+        TabHotels.value = data;
       }
-      List<PopularHotelModel> data =
-          Hotels.where((element) => element.city == cityName).toList();
-      if (kDebugMode) {
-        print("filtered data= > $data");
-      }
-      TabHotels.value = data;
-      if (kDebugMode) {
-        print("tabs hotels loaded successfully => $TabHotels");
+      if (data == []) {
+        print("No data received");
       }
     } catch (e) {
       isLoading(false);
