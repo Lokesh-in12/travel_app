@@ -34,7 +34,7 @@ class _SingleLocationState extends State<SingleLocation>
 
   Future<void> async() async {
     if (kDebugMode) {
-      print("id => ${widget.id}");
+      print("id => ${widget.id.runtimeType}");
     }
     await hotelsController.handleSingleHotel(widget.id);
   }
@@ -43,7 +43,7 @@ class _SingleLocationState extends State<SingleLocation>
   Widget build(BuildContext context) {
     return Obx(() {
       // ignore: invalid_use_of_protected_member
-      if (hotelsController.SingleHotel.value.isEmpty) {
+      if (hotelsController.SingleHotel.value.length < 1) {
         return Scaffold(
           body: Center(
             child:

@@ -2,11 +2,12 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_app/core/router/router_name.dart';
 import 'package:travel_app/core/router/router_paths.dart';
+import 'package:travel_app/src/views/screens/main/home/category_list.dart';
 import 'package:travel_app/src/views/screens/main/home/home_dashboard.dart';
 import 'package:travel_app/src/views/screens/main/home/home_discover.dart';
 import 'package:travel_app/src/views/screens/main/home/profile.dart';
 import 'package:travel_app/src/views/screens/main/home/search.dart';
-import 'package:travel_app/src/views/screens/main/home/trending.dart';
+import 'package:travel_app/src/views/screens/main/home/category.dart';
 import 'package:travel_app/src/views/screens/main/location/open_images.dart';
 import 'package:travel_app/src/views/screens/main/location/single_location.dart';
 import 'package:travel_app/src/views/screens/main/splash_screen.dart';
@@ -42,6 +43,13 @@ class MyAppRouterConfig {
                       title: state.params['title'], url: state.params['url']),
                 ),
               ]),
+
+          GoRoute(
+            path: RoutePaths.cityList,
+            name: RouteNames.cityList,
+            builder: (context, state) =>
+                CategoryList(city: state.params['city']),
+          ),
 
           ShellRoute(
               navigatorKey: _shellNavigator,

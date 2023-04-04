@@ -7,11 +7,10 @@ import 'package:travel_app/core/router/router_name.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:travel_app/src/models/popular_hotel_model.dart';
 
 class TabViewList extends StatelessWidget {
-  TabViewList({
-    super.key,
-  });
+  TabViewList({super.key});
 
   final hotelsController = Get.find<HotelsController>();
 
@@ -29,7 +28,7 @@ class TabViewList extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () => context.goNamed(RouteNames.hotel,
-              params: {"id": hotelsController.TabHotels[index].id.toString()}),
+              params: {"id": "${hotelsController.TabHotels.value[index].id}"}),
           child: Container(
             margin: const EdgeInsets.only(right: 10),
             padding: const EdgeInsets.symmetric(

@@ -52,9 +52,9 @@ class _BottomNavigationDartState extends State<BottomNavigationDart> {
             activeIcon: Icon(CupertinoIcons.home),
             label: 'Home'),
         BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar_alt_fill),
-            activeIcon: Icon(CupertinoIcons.chart_bar_alt_fill),
-            label: 'Trending'),
+            icon: Icon(Icons.dashboard),
+            activeIcon: Icon(Icons.dashboard_outlined),
+            label: 'Category'),
         BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.search),
             activeIcon: Icon(CupertinoIcons.search),

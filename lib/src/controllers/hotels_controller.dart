@@ -76,12 +76,14 @@ class HotelsController extends GetxController {
   }
 
   Future<void> handleSingleHotel(String id) async {
+    isLoading(true);
+    print("id => $id");
     List<PopularHotelModel> data =
         Hotels.where((elem) => elem.id == int.parse(id)).toList();
     SingleHotel.value = data;
-
     if (kDebugMode) {
       print("one data is =>>> $data");
     }
+    isLoading(false);
   }
 }
