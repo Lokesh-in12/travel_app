@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/src/models/popular_hotel_model.dart';
@@ -11,6 +12,10 @@ class HotelsController extends GetxController {
 
   // ignore: non_constant_identifier_names
   RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
+
+  RxList<PopularHotelModel> SearchHotels = <PopularHotelModel>[].obs;
+
+  TextEditingController searchController = TextEditingController();
 
   RxBool isLoading = false.obs;
   RxBool hasMoreData = true.obs;
@@ -78,13 +83,37 @@ class HotelsController extends GetxController {
     print("id => $id");
     List<PopularHotelModel> data =
         Hotels.where((elem) => elem.id.toString() == id).toList();
+    List<PopularHotelModel> alterData =
+        TabHotels.where((elem) => elem.id.toString() == id).toList();
+    List<PopularHotelModel> fromSearchArr =
+        SearchHotels.where((elem) => elem.id.toString() == id).toList();
 
-    if (data.length == 0) {
-      List<PopularHotelModel> alterData =
-          TabHotels.where((elem) => elem.id.toString() == id).toList();
-      SingleHotel.value = alterData;
-    } else {
-      SingleHotel.value = data;
+    SingleHotel.value = data.length != 0
+        ? data
+        : alterData.length != 0
+            ? alterData
+            : fromSearchArr.length != 0
+                ? fromSearchArr
+                : [];
+  }
+
+  Future<void> handleSeachHotel() async {
+    try {
+      if (searchController.text.trim().length != 0) {
+        List<PopularHotelModel>? result = await hotelServices.getSearchHotels(
+            searchController.text.trim(), TotalDataLength.value);
+        print("res of searchHotel in contr => $result");
+        if (result != null) {
+          SearchHotels.value = result;
+        } else {
+          SearchHotels.value = [];
+        }
+      } else {
+        print("kch to likh bhai");
+        SearchHotels.value = [];
+      }
+    } catch (e) {
+      print("err in handleSeachHotel => $e ");
     }
   }
 }

@@ -88,4 +88,44 @@ class HotelServices {
     } finally {}
     return null;
   }
+
+  //handle Search Hotels
+  Future<List<PopularHotelModel>?> getSearchHotels(
+      String keyword, totalLengthOfData) async {
+    try {
+      print("keyword is =>> $keyword");
+      Response response = await dio.get(
+        "$API_BASE_URL/popularHotels?page=1?limit=$totalLengthOfData",
+      );
+
+      if (response.statusCode == 200) {
+        List data = response.data;
+        if (kDebugMode) {
+          print("getSearchHotels $data");
+          print("getSearchHotels Data Loaded Successfully!");
+        }
+
+        String toLowerCaseKeyword = keyword.toLowerCase();
+
+        List filteredData = data
+            .where((e) =>
+                e['name'].toString().toLowerCase().contains(toLowerCaseKeyword))
+            .toList();
+
+        print("aaya kya => $filteredData");
+
+        return filteredData.map((e) => PopularHotelModel.fromJson(e)).toList();
+      } else {
+        if (kDebugMode) {
+          print("in else of getSearchHotels");
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("err in getSearchHotels =>> $e");
+      }
+      rethrow;
+    } finally {}
+    return null;
+  }
 }

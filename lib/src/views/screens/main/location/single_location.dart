@@ -157,7 +157,7 @@ class _SingleLocationState extends State<SingleLocation>
                         children: [
                           Text(
                             // ignore: invalid_use_of_protected_member
-                            " Rating ${hotelsController.TabHotels.value[0].rating}",
+                            " Rating ${hotelsController.SingleHotel.value[0].rating}",
                             style: Theme.of(context).textTheme.labelSmall,
                           ),
                           SizedBox(
@@ -166,7 +166,7 @@ class _SingleLocationState extends State<SingleLocation>
                           RatingBar.builder(
                             initialRating: double.parse(hotelsController
                                 // ignore: invalid_use_of_protected_member
-                                .TabHotels
+                                .SingleHotel
                                 // ignore: invalid_use_of_protected_member
                                 .value[0]
                                 .rating
