@@ -100,9 +100,9 @@ class HotelServices {
 
       if (response.statusCode == 200) {
         List data = response.data;
-        if (kDebugMode) {
+        if (kDebugMode) {  
           print("getSearchHotels $data");
-          print("getSearchHotels Data Loaded Successfully!");
+          print("getSearchHotels Data Loaded Successfully!");         
         }
 
         String toLowerCaseKeyword = keyword.toLowerCase();

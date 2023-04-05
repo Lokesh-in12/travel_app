@@ -79,12 +79,12 @@ class _CategoryListState extends State<CategoryList> {
                                 mainAxisSpacing: 20,
                                 crossAxisSpacing: 10),
                         itemBuilder: (BuildContext context, int index) {
-                          if (hotelsController.isLoading.value) {
-                            return Center(
-                              child: LoadingAnimationWidget.fourRotatingDots(
-                                  color: black, size: 35),
-                            );
-                          }
+                          // if (hotelsController.isLoading.value) {
+                          //   return Center(
+                          //     child: LoadingAnimationWidget.fourRotatingDots(
+                          //         color: black, size: 35),
+                          //   );
+                          // }
                           return LocationCard(
                               e: hotelsController.TabHotels[index]);
                         }),

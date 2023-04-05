@@ -6,6 +6,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
       // fontFamily: 'Sora',
       scaffoldBackgroundColor: white,
+      fontFamily: 'Montserrat',
       appBarTheme:
           const AppBarTheme(backgroundColor: white, foregroundColor: black),
       textTheme: TextTheme(
