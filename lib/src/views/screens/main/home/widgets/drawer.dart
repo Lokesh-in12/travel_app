@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:travel_app/core/router/router_name.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/drawer_row.dart';
 
@@ -16,9 +18,12 @@ class MyDrawer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 30),
           child: Column(
             children: [
-              DrawerRow(
-                name: "Your Profile",
-                icon: CupertinoIcons.person,
+              InkWell(
+                onTap: ()=> context.goNamed(RouteNames.profile),
+                child: DrawerRow(
+                  name: "Your Profile",
+                  icon: CupertinoIcons.person,
+                ),
               ),
               DrawerRow(
                 name: "Favourite Locations",

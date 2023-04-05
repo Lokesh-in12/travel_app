@@ -8,7 +8,6 @@ import 'package:travel_app/src/views/screens/main/home/home_discover.dart';
 import 'package:travel_app/src/views/screens/main/home/profile.dart';
 import 'package:travel_app/src/views/screens/main/home/search.dart';
 import 'package:travel_app/src/views/screens/main/home/category.dart';
-import 'package:travel_app/src/views/screens/main/location/open_images.dart';
 import 'package:travel_app/src/views/screens/main/location/single_location.dart';
 import 'package:travel_app/src/views/screens/main/splash_screen.dart';
 
@@ -27,17 +26,23 @@ class MyAppRouterConfig {
       ),
 
       GoRoute(
-          path: RoutePaths.hotel,
-          name: RouteNames.hotel,
-          builder: (context, state) => SingleLocation(id: state.params['id']!),
-          routes: [
-            GoRoute(
-              path: RoutePaths.openImage,
-              name: RouteNames.openImage,
-              builder: (context, state) => OpenImage(
-                  title: state.params['title'], url: state.params['url']),
-            ),
-          ]),
+        path: RoutePaths.hotel,
+        name: RouteNames.hotel,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: SingleLocation(id: state.params['id']),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: CurveTween(curve: Curves.easeIn).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
+        // builder: (context, state) => SingleLocation(id: state.params['id']!),
+      ),
 
       GoRoute(
         path: RoutePaths.cityList,

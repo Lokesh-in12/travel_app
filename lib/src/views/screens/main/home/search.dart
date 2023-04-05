@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/location_card.dart';
@@ -15,6 +15,11 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final hotelsController = Get.find<HotelsController>();
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     focusColor: black,
                     fillColor: lightWhite,
                     filled: true,
+                    hintText: "Search something...",
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(width: 0, color: white)),
                     border: OutlineInputBorder(
@@ -50,23 +56,15 @@ class _SearchScreenState extends State<SearchScreen> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: black))),
               ),
-              // Obx(() {
-              //   if(hotelsController.SearchHotels.isEmpty){
-              //     return SizedBox(
-              //       height: 500,
-              //       child: Center(
-              //         child: Text(
-              //           "Search through our best Hotels",
-              //           style: Theme.of(context).textTheme.titleMedium,
-              //         ),
-              //       ),
-              //     );
-              //   }
-              // })
               Obx(() {
-                print(
-                    "serachAray is = > ${hotelsController.SearchHotels.value} and length of controller is => ${hotelsController.searchController.text.trim().length}");
-                if (hotelsController.searchController.text.trim().length == 0) {
+                if (kDebugMode) {
+                  print(
+                      // ignore: invalid_use_of_protected_member
+                      "toalDLength => "
+                      // ignore: invalid_use_of_protected_member
+                      "serachAray is = > ${hotelsController.SearchHotels.value} and length of controller is => ${hotelsController.searchController.text.trim().length}");
+                }
+                if (hotelsController.searchController.text.trim().isEmpty) {
                   return SizedBox(
                     height: 500,
                     child: Center(
@@ -77,14 +75,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   );
                 }
-                // return Wrap(
-                //   spacing: 12,
-                //   runSpacing: 20,
-                //   children: hotelsController.Hotels.map(
-                //       (element) => LocationCard(
-                //             e: element,
-                //           )).toList(),
-                // );
                 return SingleChildScrollView(
                   physics: const NeverScrollableScrollPhysics(),
                   child: GridView.builder(

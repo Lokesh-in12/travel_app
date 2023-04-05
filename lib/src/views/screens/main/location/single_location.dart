@@ -43,8 +43,14 @@ class _SingleLocationState extends State<SingleLocation>
   Widget build(BuildContext context) {
     return Obx(() {
       // ignore: invalid_use_of_protected_member
-      print("singleData array => ${hotelsController.SingleHotel.value.length}");
-      if (hotelsController.SingleHotel.value.length < 1) {
+      if (kDebugMode) {
+        // ignore: invalid_use_of_protected_member
+        print(
+            // ignore: invalid_use_of_protected_member
+            "singleData array => ${hotelsController.SingleHotel.value.length}");
+      }
+      // ignore: invalid_use_of_protected_member
+      if (hotelsController.SingleHotel.value.isEmpty) {
         return Scaffold(
           body: Center(
             child:
@@ -61,7 +67,7 @@ class _SingleLocationState extends State<SingleLocation>
               expandedHeight: 700,
               foregroundColor: white,
               leading: InkWell(
-                onTap: () => context.goNamed(RouteNames.homeDiscover),
+                onTap: () => context.pop(RouteNames.homeDiscover),
                 child: Icon(
                   CupertinoIcons.left_chevron,
                 ),

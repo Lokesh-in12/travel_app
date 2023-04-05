@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -10,6 +9,7 @@ import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/controllers/hotels_controller.dart';
 import 'package:travel_app/src/views/screens/main/home/widgets/location_card.dart';
 
+// ignore: must_be_immutable
 class CategoryList extends StatefulWidget {
   String? city;
   CategoryList({super.key, this.city});
@@ -23,7 +23,6 @@ class _CategoryListState extends State<CategoryList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     async();
   }
@@ -35,8 +34,11 @@ class _CategoryListState extends State<CategoryList> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      print("category List => ${hotelsController.TabHotels.value.length}");
-      if (hotelsController.TabHotels.length < 1) {
+      if (kDebugMode) {
+        // ignore: invalid_use_of_protected_member
+        print("category List => ${hotelsController.TabHotels.value.length}");
+      }
+      if (hotelsController.TabHotels.isEmpty) {
         return Scaffold(
             body: Center(
           child:
@@ -47,8 +49,8 @@ class _CategoryListState extends State<CategoryList> {
         appBar: AppBar(
           foregroundColor: black,
           leading: InkWell(
-              onTap: () => context.goNamed(RouteNames.trending),
-              child: Icon(CupertinoIcons.left_chevron)),
+              onTap: () => context.pop(RouteNames.trending),
+              child: const Icon(CupertinoIcons.left_chevron)),
           title: Text(
             widget.city!,
             style: Theme.of(context).textTheme.displayMedium,
@@ -57,13 +59,13 @@ class _CategoryListState extends State<CategoryList> {
           backgroundColor: white,
         ),
         body: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
                     physics: const NeverScrollableScrollPhysics(),
@@ -79,12 +81,6 @@ class _CategoryListState extends State<CategoryList> {
                                 mainAxisSpacing: 20,
                                 crossAxisSpacing: 10),
                         itemBuilder: (BuildContext context, int index) {
-                          if (hotelsController.isLoading.value) {
-                            return Center(
-                              child: LoadingAnimationWidget.fourRotatingDots(
-                                  color: black, size: 35),
-                            );
-                          }
                           return LocationCard(
                               e: hotelsController.TabHotels[index]);
                         }),

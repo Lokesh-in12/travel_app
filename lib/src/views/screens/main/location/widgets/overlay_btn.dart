@@ -15,7 +15,7 @@ class OverLayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () =>
-          goBack == true ? context.goNamed(RouteNames.homeDiscover) : null,
+          goBack == true ? context.pushNamed(RouteNames.homeDiscover) : null,
       child: Stack(
         alignment: Alignment.center,
         children: [

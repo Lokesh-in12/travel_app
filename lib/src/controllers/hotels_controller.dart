@@ -13,13 +13,16 @@ class HotelsController extends GetxController {
   // ignore: non_constant_identifier_names
   RxList<PopularHotelModel> SingleHotel = <PopularHotelModel>[].obs;
 
+  // ignore: non_constant_identifier_names
   RxList<PopularHotelModel> SearchHotels = <PopularHotelModel>[].obs;
 
   TextEditingController searchController = TextEditingController();
 
   RxBool isLoading = false.obs;
   RxBool hasMoreData = true.obs;
+  // ignore: non_constant_identifier_names
   RxInt Page = 1.obs;
+  // ignore: non_constant_identifier_names
   RxInt TotalDataLength = 0.obs;
 
   final HotelServices hotelServices = HotelServices();
@@ -59,8 +62,11 @@ class HotelsController extends GetxController {
   }
 
   Future<void> handleTabHotels(String cityName) async {
-    print("ciyName in controller = > $cityName");
+    if (kDebugMode) {
+      print("ciyName in controller = > $cityName");
+    }
     try {
+      TabHotels.clear();
       isLoading(true);
       List<PopularHotelModel>? data =
           await hotelServices.getHotelByCity(cityName);
@@ -80,7 +86,9 @@ class HotelsController extends GetxController {
 
   Future<void> handleSingleHotel(String id) async {
     isLoading(true);
-    print("id => $id");
+    if (kDebugMode) {
+      print("id => $id");
+    }
     List<PopularHotelModel> data =
         Hotels.where((elem) => elem.id.toString() == id).toList();
     List<PopularHotelModel> alterData =
@@ -88,32 +96,38 @@ class HotelsController extends GetxController {
     List<PopularHotelModel> fromSearchArr =
         SearchHotels.where((elem) => elem.id.toString() == id).toList();
 
-    SingleHotel.value = data.length != 0
+    SingleHotel.value = data.isNotEmpty
         ? data
-        : alterData.length != 0
+        : alterData.isNotEmpty
             ? alterData
-            : fromSearchArr.length != 0
+            : fromSearchArr.isNotEmpty
                 ? fromSearchArr
                 : [];
   }
 
   Future<void> handleSeachHotel() async {
     try {
-      if (searchController.text.trim().length != 0) {
+      if (searchController.text.trim().isNotEmpty) {
         List<PopularHotelModel>? result = await hotelServices.getSearchHotels(
             searchController.text.trim(), TotalDataLength.value);
-        print("res of searchHotel in contr => $result");
+        if (kDebugMode) {
+          print("res of searchHotel in contr => $result");
+        }
         if (result != null) {
           SearchHotels.value = result;
         } else {
           SearchHotels.value = [];
         }
       } else {
-        print("kch to likh bhai");
+        if (kDebugMode) {
+          print("kch to likh bhai");
+        }
         SearchHotels.value = [];
       }
     } catch (e) {
-      print("err in handleSeachHotel => $e ");
+      if (kDebugMode) {
+        print("err in handleSeachHotel => $e ");
+      }
     }
   }
 }

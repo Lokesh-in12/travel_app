@@ -35,10 +35,11 @@ class _TrendingScreenState extends State<TrendingScreen> {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.goNamed(RouteNames.cityList, params: {"city": name[index]});
+            context
+                .pushNamed(RouteNames.cityList, params: {"city": name[index]});
           },
           child: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             height: 200,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -56,7 +57,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.all(8),
+                  margin: const EdgeInsets.all(8),
                   height: 140,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(

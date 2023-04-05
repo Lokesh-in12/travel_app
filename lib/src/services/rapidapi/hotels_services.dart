@@ -28,11 +28,14 @@ class HotelServices {
     } catch (e) {
       rethrow;
     }
+    return null;
   }
 
   Future<List<PopularHotelModel>?> getPopularHotels(page) async {
     try {
-      print("page is =>> $page");
+      if (kDebugMode) {
+        print("page is =>> $page");
+      }
       Response response = await dio.get(
         "$API_BASE_URL/popularHotels?page=$page",
       );
@@ -61,7 +64,9 @@ class HotelServices {
 
   //handle Hotels by cityName
   Future<List<PopularHotelModel>?> getHotelByCity(String city) async {
-    print("ciyName in services = > $city");
+    if (kDebugMode) {
+      print("ciyName in services = > $city");
+    }
     try {
       Response response = await dio.get(
         "$API_BASE_URL/hotelByCity?city=$city",
@@ -93,26 +98,32 @@ class HotelServices {
   Future<List<PopularHotelModel>?> getSearchHotels(
       String keyword, totalLengthOfData) async {
     try {
-      print("keyword is =>> $keyword");
+      if (kDebugMode) {
+        print(
+            "keyword is =>> $keyword and length of total data => $totalLengthOfData");
+      }
       Response response = await dio.get(
-        "$API_BASE_URL/popularHotels?page=1?limit=$totalLengthOfData",
+        "$API_BASE_URL/popularHotels?page=1&limit=$totalLengthOfData",
       );
 
       if (response.statusCode == 200) {
         List data = response.data;
-        if (kDebugMode) {  
+        if (kDebugMode) {
           print("getSearchHotels $data");
-          print("getSearchHotels Data Loaded Successfully!");         
+          print("getSearchHotels Data Loaded Successfully!");
         }
 
-        String toLowerCaseKeyword = keyword.toLowerCase();
+        String toLowerCaseKeyword =
+            keyword.toLowerCase().trimLeft().trimRight();
 
         List filteredData = data
             .where((e) =>
                 e['name'].toString().toLowerCase().contains(toLowerCaseKeyword))
             .toList();
 
-        print("aaya kya => $filteredData");
+        if (kDebugMode) {
+          print("aaya kya => $filteredData");
+        }
 
         return filteredData.map((e) => PopularHotelModel.fromJson(e)).toList();
       } else {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:travel_app/core/themes/colors.dart';
 import 'package:travel_app/src/models/chart_model.dart';
 
@@ -16,7 +15,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     chartData = [
       ChartModel(day: 17, price: 21500),

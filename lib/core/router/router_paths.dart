@@ -6,6 +6,5 @@ class RoutePaths {
   static const search = '/search';
   static const profile = '/profile';
   static const hotel = '/hotel/:id';
-  static const openImage = 'openImage/:title/:url';
   static const cityList = '/cityList/:city';
 }

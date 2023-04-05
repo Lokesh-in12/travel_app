@@ -6,6 +6,5 @@ class RouteNames {
   static const search = "search";
   static const profile = "profile";
   static const hotel = 'hotel';
-  static const openImage = 'openImage';
   static const cityList = 'cityList';
 }

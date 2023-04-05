@@ -58,12 +58,17 @@ class _HomeDiscoverState extends State<HomeDiscover>
       if (scrollController.position.pixels >=
               scrollController.position.maxScrollExtent &&
           hotelsController.isLoading.value == false) {
-        print("pass one if");
+        if (kDebugMode) {
+          print("pass one if");
+        }
         if (hotelsController.hasMoreData.value) {
-          print("pass 2 if");
+          if (kDebugMode) {
+            print("pass 2 if");
+          }
           hotelsController.Page.value++;
           await hotelsController.fetchAllHotels();
           hotelsController.hasMoreData.value =
+              // ignore: invalid_use_of_protected_member
               hotelsController.Hotels.value.length ==
                       hotelsController.TotalDataLength.value
                   ? false
@@ -264,8 +269,10 @@ class _HomeDiscoverState extends State<HomeDiscover>
                       height: 20,
                     ),
                     Obx(() {
-                      print(
+                      if (kDebugMode) {
+                        print(
                           "HasMoreData is => ${hotelsController.hasMoreData.value}");
+                      }
                       if (hotelsController.Hotels.isEmpty) {
                         return Center(
                           child: LoadingAnimationWidget.fourRotatingDots(
