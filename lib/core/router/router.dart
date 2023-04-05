@@ -17,75 +17,69 @@ final GlobalKey<NavigatorState> _shellNavigator =
 
 class MyAppRouterConfig {
   static GoRouter getRouter() {
-    GoRouter router = GoRouter(
-        // initialLocation: '/${RouteNames.homeDiscover}',
-        initialLocation: '/${RouteNames.profile}', 
-        // initialLocation: '/${RouteNames.hotel}/275',
-        // initialLocation: RoutePaths.splashScreen,
-        routes: [ 
-          //splashRoute
-          GoRoute(
-            path: RoutePaths.splashScreen,
-            name: RouteNames.splashScreen,
-            builder: (context, state) => const SplashScreen(),
-          ),
+    GoRouter router =
+        GoRouter(initialLocation: RoutePaths.splashScreen, routes: [
+      //splashRoute
+      GoRoute(
+        path: RoutePaths.splashScreen,
+        name: RouteNames.splashScreen,
+        builder: (context, state) => const SplashScreen(),
+      ),
 
-          GoRoute(
-              path: RoutePaths.hotel,
-              name: RouteNames.hotel,
-              builder: (context, state) =>
-                  SingleLocation(id: state.params['id']!),
-              routes: [
-                GoRoute(
-                  path: RoutePaths.openImage,
-                  name: RouteNames.openImage,
-                  builder: (context, state) => OpenImage(
-                      title: state.params['title'], url: state.params['url']),
-                ),
-              ]),
+      GoRoute(
+          path: RoutePaths.hotel,
+          name: RouteNames.hotel,
+          builder: (context, state) => SingleLocation(id: state.params['id']!),
+          routes: [
+            GoRoute(
+              path: RoutePaths.openImage,
+              name: RouteNames.openImage,
+              builder: (context, state) => OpenImage(
+                  title: state.params['title'], url: state.params['url']),
+            ),
+          ]),
 
-          GoRoute(
-            path: RoutePaths.cityList,
-            name: RouteNames.cityList,
-            builder: (context, state) =>
-                CategoryList(city: state.params['city']),
-          ),
+      GoRoute(
+        path: RoutePaths.cityList,
+        name: RouteNames.cityList,
+        builder: (context, state) => CategoryList(city: state.params['city']),
+      ),
 
-          ShellRoute(
-              navigatorKey: _shellNavigator,
-              builder: (context, state, child) =>      
-                  HomeDashBoard(key: state.pageKey, child: child),
-              routes: [
-                GoRoute(
-                  path: RoutePaths.homeDiscover,
-                  name: RouteNames.homeDiscover,
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: HomeDiscover());
-                  },
-                ),
-                GoRoute(
-                  path: RoutePaths.trending,
-                  name: RouteNames.trending,
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: TrendingScreen());
-                  },
-                ),
-                GoRoute(
-                  path: RoutePaths.search,
-                  name: RouteNames.search,
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: SearchScreen());
-                  },
-                ),
-                GoRoute(
-                  path: RoutePaths.profile,
-                  name: RouteNames.profile,
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: ProfileScreen());
-                  },
-                ),
-              ]),
-        ]);
+      ShellRoute(
+          navigatorKey: _shellNavigator,
+          builder: (context, state, child) =>
+              HomeDashBoard(key: state.pageKey, child: child),
+          routes: [
+            GoRoute(
+              path: RoutePaths.homeDiscover,
+              name: RouteNames.homeDiscover,
+              pageBuilder: (context, state) {
+                return const NoTransitionPage(child: HomeDiscover());
+              },
+            ),
+            GoRoute(
+              path: RoutePaths.trending,
+              name: RouteNames.trending,
+              pageBuilder: (context, state) {
+                return const NoTransitionPage(child: TrendingScreen());
+              },
+            ),
+            GoRoute(
+              path: RoutePaths.search,
+              name: RouteNames.search,
+              pageBuilder: (context, state) {
+                return const NoTransitionPage(child: SearchScreen());
+              },
+            ),
+            GoRoute(
+              path: RoutePaths.profile,
+              name: RouteNames.profile,
+              pageBuilder: (context, state) {
+                return const NoTransitionPage(child: ProfileScreen());
+              },
+            ),
+          ]),
+    ]);
 
     return router;
   }

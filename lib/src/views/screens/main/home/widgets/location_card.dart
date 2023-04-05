@@ -56,8 +56,8 @@ class LocationCard extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Center(
                                   child: Text(
-                                "\$ ${e.price}",
-                                style: Theme.of(context).textTheme.titleMedium,
+                                "Rs ${e.price}",
+                                style: Theme.of(context).textTheme.titleSmall,
                               )),
                             ),
                           ),
