@@ -48,6 +48,7 @@ class HotelsController extends GetxController {
         Hotels.length > TotalDataLength.value
             ? hasMoreData(false)
             : hasMoreData(true);
+        Hotels.shuffle();
       } else {
         Hotels.value = [];
       }

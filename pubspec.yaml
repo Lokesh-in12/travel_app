@@ -22,6 +22,8 @@ dependencies:
 
   #routing
   go_router: ^6.5.0
+
+  
   get: ^4.6.5
   flutter_avif: ^1.1.0
   loading_animation_widget: ^1.2.0+4

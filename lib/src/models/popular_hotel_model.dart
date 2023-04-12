@@ -7,6 +7,7 @@ class PopularHotelModel {
   String? rating;
   String? location;
   String? price;
+  Map<String , dynamic>? allData;
 
   PopularHotelModel(
       {this.id,
@@ -27,6 +28,7 @@ class PopularHotelModel {
     rating = json['rating'];
     location = json['location'];
     price = json['price'];
+    allData = json;
   }
 
   Map<String, dynamic> toJson() {

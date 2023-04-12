@@ -15,7 +15,7 @@ final GlobalKey<NavigatorState> _shellNavigator =
     GlobalKey(debugLabel: 'shell');
 
 class MyAppRouterConfig {
-  static GoRouter getRouter() {
+ static GoRouter getRouter() {
     GoRouter router =
         GoRouter(initialLocation: RoutePaths.splashScreen, routes: [
       //splashRoute

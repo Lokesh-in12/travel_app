@@ -271,7 +271,7 @@ class _HomeDiscoverState extends State<HomeDiscover>
                     Obx(() {
                       if (kDebugMode) {
                         print(
-                          "HasMoreData is => ${hotelsController.hasMoreData.value}");
+                            "HasMoreData is => ${hotelsController.hasMoreData.value}");
                       }
                       if (hotelsController.Hotels.isEmpty) {
                         return Center(

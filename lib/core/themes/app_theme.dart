@@ -7,6 +7,7 @@ class AppTheme {
       // fontFamily: 'Sora',
       scaffoldBackgroundColor: white,
       fontFamily: 'Montserrat',
+      
       appBarTheme:
           const AppBarTheme(backgroundColor: white, foregroundColor: black),
       textTheme: TextTheme(
